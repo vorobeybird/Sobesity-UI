@@ -1,3 +1,11 @@
+# Resourses links
+
+[Conventional commits](https://docs.rs.school/#/git-convention)
+
+[Trello board](https://trello.com/b/9eu1u9Zi/sobesity)
+
+[Figma](https://www.figma.com/file/BQ36ggjZjii96q3JJgaLqk/Sobesity)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
