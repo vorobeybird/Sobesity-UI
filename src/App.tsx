@@ -1,5 +1,5 @@
 function App() {
-  return <h1>Sobecity</h1>;
+  return <h1 className="text-3xl font-bold underline">Sobecity</h1>;
 }
 
 export default App;
