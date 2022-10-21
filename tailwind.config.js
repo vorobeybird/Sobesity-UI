@@ -40,6 +40,7 @@ module.exports = {
             letterSpacing: '0.05em',
             fontWeight: theme('fontWeight.medium'),
             fontFamily: theme('fontFamily.oswald'),
+            color: theme('colors.white'),
           },
         },
         h2: {
@@ -49,6 +50,7 @@ module.exports = {
             letterSpacing: '0.05em',
             fontWeight: theme('fontWeight.medium'),
             fontFamily: theme('fontFamily.oswald'),
+            color: theme('colors.white'),
           },
         },
         h3: {
@@ -58,6 +60,7 @@ module.exports = {
             letterSpacing: '0.05em',
             fontWeight: theme('fontWeight.medium'),
             fontFamily: theme('fontFamily.oswald'),
+            color: theme('colors.white'),
           },
         },
         'body-1': {
@@ -66,6 +69,7 @@ module.exports = {
             lineHeight: '142.9%',
             fontWeight: theme('fontWeight.light'),
             fontFamily: theme('fontFamily.firaSans'),
+            color: theme('colors.white'),
           },
         },
         'body-2': {
@@ -74,6 +78,7 @@ module.exports = {
             lineHeight: '120.9%',
             fontWeight: theme('fontWeight.light'),
             fontFamily: theme('fontFamily.firaSans'),
+            color: '#575252',
           },
         },
         'body-3': {
@@ -82,6 +87,7 @@ module.exports = {
             lineHeight: '120.9%',
             fontWeight: theme('fontWeight.normal'),
             fontFamily: theme('fontFamily.firaSans'),
+            color: 'rgba(255, 255, 255, 0.48)',
           },
         },
         'body-4': {
@@ -90,6 +96,7 @@ module.exports = {
             lineHeight: '120.9%',
             fontWeight: theme('fontWeight.light'),
             fontFamily: theme('fontFamily.firaCode'),
+            color: '#C0ACAC',
           },
         },
         'button-1': {
@@ -100,6 +107,7 @@ module.exports = {
             fontWeight: theme('fontWeight.normal'),
             fontFamily: theme('fontFamily.oswald'),
             textTransform: 'uppercase',
+            color: theme('colors.white'),
           },
         },
         'button-2': {
@@ -108,6 +116,7 @@ module.exports = {
             lineHeight: '120.9%',
             fontWeight: theme('fontWeight.light'),
             fontFamily: theme('fontFamily.firaSans'),
+            color: theme('colors.white'),
           },
         },
         'button-3': {
@@ -116,6 +125,7 @@ module.exports = {
             lineHeight: '120.9%',
             fontWeight: theme('fontWeight.light'),
             fontFamily: theme('fontFamily.firaSans'),
+            color: theme('colors.white'),
           },
         },
       }),
