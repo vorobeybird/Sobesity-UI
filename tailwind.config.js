@@ -21,9 +21,9 @@ module.exports = {
       white: '#FFFFFF',
     },
     fontFamily: {
-      oswald: ['Oswald', 'sans-serif'],
-      firaSans: ['Fira Sans', 'sans-serif'],
-      firaCode: ['Fira Code', 'monospace'],
+      oswald: 'Oswald, sans-serif',
+      firaSans: 'Fira Sans, sans-serif',
+      firaCode: 'Fira Code, monospace',
     },
     screens: {
       sm: { min: '414px' },
@@ -31,7 +31,95 @@ module.exports = {
       lg: { min: '1024px' },
       xl: { min: '1280px' },
     },
-    extend: {},
+    extend: {
+      typography: (theme) => ({
+        h1: {
+          css: {
+            fontSize: '1.5rem',
+            lineHeight: '120.9%',
+            letterSpacing: '0.05em',
+            fontWeight: theme('fontWeight.medium'),
+            fontFamily: theme('fontFamily.oswald'),
+          },
+        },
+        h2: {
+          css: {
+            fontSize: '1.25rem',
+            lineHeight: '120.9%',
+            letterSpacing: '0.05em',
+            fontWeight: theme('fontWeight.medium'),
+            fontFamily: theme('fontFamily.oswald'),
+          },
+        },
+        h3: {
+          css: {
+            fontSize: '0.875rem',
+            lineHeight: '120.9%',
+            letterSpacing: '0.05em',
+            fontWeight: theme('fontWeight.medium'),
+            fontFamily: theme('fontFamily.oswald'),
+          },
+        },
+        'body-1': {
+          css: {
+            fontSize: '1rem',
+            lineHeight: '142.9%',
+            fontWeight: theme('fontWeight.light'),
+            fontFamily: theme('fontFamily.firaSans'),
+          },
+        },
+        'body-2': {
+          css: {
+            fontSize: '0.75rem',
+            lineHeight: '120.9%',
+            fontWeight: theme('fontWeight.light'),
+            fontFamily: theme('fontFamily.firaSans'),
+          },
+        },
+        'body-3': {
+          css: {
+            fontSize: '0.75rem',
+            lineHeight: '120.9%',
+            fontWeight: theme('fontWeight.normal'),
+            fontFamily: theme('fontFamily.firaSans'),
+          },
+        },
+        'body-4': {
+          css: {
+            fontSize: '0.875rem',
+            lineHeight: '120.9%',
+            fontWeight: theme('fontWeight.light'),
+            fontFamily: theme('fontFamily.firaCode'),
+          },
+        },
+        'button-1': {
+          css: {
+            fontSize: '0.875rem',
+            lineHeight: '120.9%',
+            letterSpacing: '0.05em',
+            fontWeight: theme('fontWeight.normal'),
+            fontFamily: theme('fontFamily.oswald'),
+            textTransform: 'uppercase',
+          },
+        },
+        'button-2': {
+          css: {
+            fontSize: '0.875rem',
+            lineHeight: '120.9%',
+            fontWeight: theme('fontWeight.light'),
+            fontFamily: theme('fontFamily.firaSans'),
+          },
+        },
+        'button-3': {
+          css: {
+            fontSize: '1.125rem',
+            lineHeight: '120.9%',
+            fontWeight: theme('fontWeight.light'),
+            fontFamily: theme('fontFamily.firaSans'),
+          },
+        },
+      }),
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
