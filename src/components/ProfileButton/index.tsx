@@ -1,13 +1,3 @@
-import profileLogo from '../../assets/icons/avatar.svg';
+import { ProfileButton } from "./ProfileButton";
 
-export function ProfileButton() {
-  return (
-    <div className="flex">
-      <img
-        src={profileLogo}
-        alt="Profile logo"
-        className="w-[6vw] h-[6vw]"
-      ></img>
-    </div>
-  );
-}
+export default ProfileButton;
