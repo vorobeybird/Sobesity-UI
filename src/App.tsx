@@ -1,5 +1,12 @@
+import Header from "./layouts/Header";
+
 function App() {
-  return <h1 className="prose-body-4">Sobecity</h1>;
+  return (
+    <div>
+      <Header isLoggedIn={true} />
+      <h1 className="text-3xl font-bold underline">Sobecity</h1>
+    </div>
+  );
 }
 
 export default App;
