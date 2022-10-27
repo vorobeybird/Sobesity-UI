@@ -5,7 +5,10 @@ export function Header(props: any) {
   const { isLoggedIn } = props;
 
   const tempLogInButton = (
-    <button className="w-[17vw] h-[6vw] text-white border-solid border-[1px] border-[#7E2020] rounded-[3px]">
+    <button
+      type="button"
+      className="w-[17vw] h-[6vw] text-white border-solid border-[1px] border-[#7E2020] rounded-[3px]"
+    >
       Log In
     </button>
   );
