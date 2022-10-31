@@ -1,4 +1,4 @@
-import Footer from './layouts/Footer';
+import { Footer } from 'layouts/footer/Footer';
 import Header from './layouts/Header';
 
 function App() {
