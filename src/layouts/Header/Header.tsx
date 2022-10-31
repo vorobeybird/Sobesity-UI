@@ -1,5 +1,5 @@
-import BurgerMenu from '../../components/BurgerMenu';
-import ProfileButton from '../../components/ProfileButton';
+import BurgerMenu from '../../components/burger-menu';
+import ProfileButton from '../../components/profile-button';
 
 export function Header(props: any) {
   const { isLoggedIn } = props;
