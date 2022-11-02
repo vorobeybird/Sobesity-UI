@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button {
+    @apply box-border border-[1px] py-2.5 w-full;
+  }
+
+  .button-transparent {
+    @apply border-transparent;
+  }
+
+  .button-1 {
+    @apply button prose-button-1 border-primary-dark;
+  }
+
+  .button-2 {
+    @apply button prose-button-2 border-white xl:hover:bg-secondary-default;
+  }
+
+  .button-2-active {
+    @apply button-2 bg-grey;
+  }
+
+  .button-3 {
+    @apply button prose-button-3 border-white;
+  }
+}
