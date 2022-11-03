@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <Header isLoggedIn />
-      <h1 className="text-3xl font-bold underline">Sobecity</h1>
+      <h1 className="body-4">Sobecity</h1>
       <Footer />
     </div>
   );
