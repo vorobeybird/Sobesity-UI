@@ -1,29 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.btn {
+  @apply box-border flex items-center justify-center border-[1px] h-full w-full disabled:bg-secondary-dark disabled:border-secondary-dark disabled:text-secondary-dark;
+}
 
-@layer components {
-  .button {
-    @apply box-border border-[1px] py-2.5 w-full;
-  }
+.btn-primary {
+  @apply button-1 border-primary xl:hover:bg-primary-light xl:hover:border-primary-light;
+}
 
-  .button-transparent {
-    @apply border-transparent;
-  }
+.btn-primary-active {
+  @apply bg-primary;
+}
 
-  .button-1 {
-    @apply button prose-button-1 border-primary-dark;
-  }
+.btn-primary_dark {
+  @apply button-1 bg-primary-dark border-primary-dark xl:hover:bg-primary-light xl:hover:border-primary-light;
+}
 
-  .button-2 {
-    @apply button prose-button-2 border-white xl:hover:bg-secondary-default;
-  }
+.btn-primary_dark-active {
+  @apply button-1 bg-primary-darkest border-primary-darkest;
+}
 
-  .button-2-active {
-    @apply button-2 bg-grey;
-  }
+.btn-secondary {
+  @apply button-2 border-white xl:hover:bg-secondary-light xl:hover:text-black-dark;
+}
 
-  .button-3 {
-    @apply button prose-button-3 border-white;
-  }
+.btn-secondary-active {
+  @apply bg-secondary;
+}
+
+.btn-tertiary {
+  @apply button-3 border-white xl:hover:bg-secondary-light p-2.5 justify-start items-end xl:hover:text-black-dark;
+}
+
+.btn-tertiary-active {
+  @apply bg-secondary;
 }

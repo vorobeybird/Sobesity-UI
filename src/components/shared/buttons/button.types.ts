@@ -1,24 +1,19 @@
 import { ReactNode } from 'react';
 
-export enum ButtonType {
-  PRIMARY = 'button-1',
-  SECONDARY = 'button-2',
-  PLATE = 'button-3',
-}
-
 export enum ButtonStyle {
-  PRIMARY = 'button-1',
-  SECONDARY = 'button-2',
-  PLATE = 'button-3',
+  PRIMARY = 'primary',
+  PRIMARY_DARK = 'primary_dark',
+  SECONDARY = 'secondary',
+  PLATE = 'tertiary',
 }
 
-export interface ButtonProps {
-  buttonType: string;
+export type ButtonProps = React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> & {
+  variant: ButtonStyle;
   loading?: boolean;
   disabled?: boolean;
-  otherProps?: React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  >;
+  otherClasses?: string;
   children: ReactNode;
-}
+};
