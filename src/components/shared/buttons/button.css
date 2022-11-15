@@ -1,0 +1,19 @@
+.btn {
+  @apply box-border flex items-center justify-center border-[1px] h-full w-full disabled:bg-secondary-dark disabled:border-secondary-dark disabled:text-secondary-dark;
+}
+
+.btn-primary {
+  @apply button-1 border-primary xl:hover:bg-primary-light xl:hover:border-primary-light focus:bg-primary;
+}
+
+.btn-primary_dark {
+  @apply button-1 bg-primary-dark border-primary-dark xl:hover:bg-primary-light xl:hover:border-primary-light focus:bg-primary-darkest focus:border-primary-darkest;
+}
+
+.btn-secondary {
+  @apply button-2 border-white xl:hover:bg-secondary-light xl:hover:text-black-dark focus:bg-secondary;
+}
+
+.btn-tertiary {
+  @apply button-3 border-white xl:hover:bg-secondary-light p-2.5 justify-start items-end xl:hover:text-black-dark focus:bg-secondary;
+}
