@@ -1,13 +1,15 @@
+import './info-card-header.css';
+
 export function InfoCardHeader(props: any) {
   const { cardHeader, cardType } = props;
   const headerColor = () => {
     if (cardType === 'list') {
-      return 'text-white';
+      return 'info-card-header-white';
     }
-    return 'text-[#7b2224] sm:w-[153px] md:w-[300px]';
+    return 'info-card-header-bloody';
   };
 
-  const headerStyles = `font-oswald font-medium sm:text-[20px] md:text-[40px] leading-[120.9%] sm:pb-2.5 md:pb-5 ${headerColor()}`;
+  const headerStyles = `info-card-header ${headerColor()}`;
 
   return <div className={headerStyles}>{cardHeader}</div>;
 }
