@@ -6,6 +6,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      inherit: 'inherit',
       primary: {
         dark: '#641E1F',
         darkest: '#461A1B',
@@ -33,6 +36,7 @@ module.exports = {
       oswald: 'Oswald, sans-serif',
       firaSans: 'Fira Sans, sans-serif',
       firaCode: 'Fira Code, monospace',
+      inter: 'Inter, sans-serif',
     },
     screens: {
       sm: '414px',
@@ -177,6 +181,16 @@ module.exports = {
           color: theme('colors.white'),
           '@screen xl': {
             fontSize: '1.25rem',
+          },
+        },
+        '.error-input': {
+          fontSize: '0.625rem',
+          lineHeight: '120.9%',
+          fontWeight: theme('fontWeight.normal'),
+          fontFamily: theme('fontFamily.inter'),
+          color: theme('colors.primary.DEFAULT'),
+          '@screen xl': {
+            fontSize: '0.75rem',
           },
         },
       };
