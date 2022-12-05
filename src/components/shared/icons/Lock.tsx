@@ -3,10 +3,11 @@ import { SVGProps } from 'react';
 
 const SvgLock = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    width="0.7em"
-    height="0.9em"
+    width="1em"
+    height="1em"
     viewBox="0 0 17 22"
     fill="inherit"
+    stroke="none"
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >

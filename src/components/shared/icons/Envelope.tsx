@@ -3,8 +3,8 @@ import { SVGProps } from 'react';
 
 const SvgEnvelope = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    width="0.9em"
-    height="0.7em"
+    width="1em"
+    height="1em"
     viewBox="0 0 23 17"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

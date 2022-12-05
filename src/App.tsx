@@ -12,12 +12,26 @@ function App() {
       <div className="bg-black-dark p-5">
         <Input
           className="w-[300px] h-[40px] xl:w-[500px] xl:h-[48px]"
+          containerStyles="mx-2"
           icon={<Lock />}
           error="opps wrong happened"
           placeholder="email"
         />
         <Input
           className="w-[300px] h-[40px] xl:w-[500px] xl:h-[48px]"
+          containerStyles="mx-2"
+          icon={<Lock />}
+          placeholder="email"
+        />
+        <Input
+          className="w-[300px] h-[40px] xl:w-[500px] xl:h-[48px]"
+          containerStyles="mx-2"
+          icon={<Envelope />}
+          placeholder="email"
+        />
+        <Input
+          className="w-[300px] h-[40px] xl:w-[500px] xl:h-[48px]"
+          containerStyles="mx-2"
           icon={<Envelope />}
           placeholder="email"
         />
