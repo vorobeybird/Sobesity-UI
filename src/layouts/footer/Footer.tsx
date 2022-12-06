@@ -1,4 +1,4 @@
-import languagesLogos from '../../assets/icons/languages.svg';
+import LanguagesLogos from 'components/shared/icons/Languages';
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
         <br />
         Most Popular:
       </p>
-      <img src={languagesLogos} alt="languages logos" className="sm:w-96" />
+      <LanguagesLogos className="sm:w-96" />
     </div>
   );
 }
