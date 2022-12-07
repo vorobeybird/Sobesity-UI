@@ -51,7 +51,7 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ addComponents, theme }) {
+    plugin(function ({ addComponents, addUtilities, theme }) {
       const typography = {
         '.h1': {
           fontSize: '1.5rem',
@@ -198,7 +198,22 @@ module.exports = {
           },
         },
       };
+      const utilities = {
+        '.backface-visible': {
+          'backface-visibility': 'visible',
+          '-moz-backface-visibility': 'visible',
+          '-webkit-backface-visibility': 'visible',
+          '-ms-backface-visibility': 'visible'
+        },
+        '.backface-hidden': {
+          'backface-visibility': 'hidden',
+          '-moz-backface-visibility': 'hidden',
+          '-webkit-backface-visibility': 'hidden',
+          '-ms-backface-visibility': 'hidden'
+        }
+      }
       addComponents(typography);
+      addUtilities(utilities);
     }),
   ],
 };
