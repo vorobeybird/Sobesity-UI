@@ -15,8 +15,7 @@ const Carousel = ({
 }: CarouselProp) => {
   const slides = React.Children.toArray(children);
   const { length } = slides;
-  console.log('rerender Carousel');
-  const [active, setActive, handlers, style] = useCarousel(
+  const { active, setActive, handlers, style } = useCarousel(
     length,
     interval,
     transitionTime,
@@ -77,7 +76,7 @@ const Carousel = ({
                   <div
                     className={classnames(
                       'bg-secondary-dark',
-                      'rounded-full inline-block w-10 h-10 cursor-pointer',
+                      'rounded-full inline-block w-5 h-5 m-1 cursor-pointer',
                       {
                         'bg-secondary-light': active === index,
                       },

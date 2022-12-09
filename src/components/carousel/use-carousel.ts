@@ -1,28 +1,31 @@
 import { useReducer, useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import { ICarouselState, ICarouselAction } from './carousel.types';
-
-/*
-  useCarousel Hook
-  */
-function previous(length: number, current: number) {
-  return (current - 1 + length) % length;
-}
-
-function next(length: number, current: number) {
-  return (current + 1) % length;
-}
-
-function threshold(target: Element) {
-  const width = target.clientWidth;
-  return width / 10;
-}
+import {
+  ICarouselState,
+  ICarouselAction,
+  CarouselActionTypes as actionTypes,
+  ICarouselStyle,
+} from './carousel.types';
 
 const initialCarouselState: ICarouselState = {
   offset: 0,
   desired: 0,
   active: 0,
 };
+
+function previous(length: number, current: number): number {
+  return (current - 1 + length) % length;
+}
+
+function next(length: number, current: number): number {
+  return (current + 1) % length;
+}
+
+function threshold(target: Element): number {
+  const width = target.clientWidth;
+
+  return width / 10;
+}
 
 function carouselReducer(
   state: ICarouselState,
@@ -50,7 +53,7 @@ function carouselReducer(
     case 'done':
       return {
         ...state,
-        offset: 0,
+        offset: NaN,
         active: state.desired,
         type: action.type,
       };
@@ -65,7 +68,12 @@ function carouselReducer(
   }
 }
 
-function swiped(e: any, dispatch: any, length: number, direction: number) {
+function swiped(
+  e: any,
+  dispatch: any,
+  length: number,
+  direction: number,
+): void {
   const t = threshold(e.event.target);
   const d = direction * -e.deltaX;
 
@@ -88,15 +96,16 @@ export function useCarousel(
   transitionTime = 300,
 ) {
   const [state, dispatch] = useReducer(carouselReducer, initialCarouselState);
-
-  const elastic = `transform ${transitionTime}ms cubic-bezier(0.68, 0, 0.265, 1.55)`;
-  const smooth = `transform ${transitionTime}ms ease-out`;
-  const lengthWithClones = length + 2;
+  let direction: number = 0;
+  let shift: number = 0;
+  const elastic: string = `transform ${transitionTime}ms cubic-bezier(0.68, 0, 0.265, 1.55)`;
+  const smooth: string = `transform ${transitionTime}ms ease-out`;
+  const lengthWithClones: number = length + 2;
 
   const handlers = useSwipeable({
     onSwiping(e) {
       dispatch({
-        type: 'drag',
+        type: actionTypes.drag,
         offset: e.deltaX,
       });
     },
@@ -111,34 +120,50 @@ export function useCarousel(
   });
 
   // eslint-disable-next-line consistent-return
-  // useEffect(() => {
-  //   if (interval) {
-  //     const id = setTimeout(() => dispatch({ type: 'next', length }), interval);
-  //     return () => clearTimeout(id);
-  //   }
-  // }, [state.offset, state.active, interval]);
+  useEffect(() => {
+    if (interval) {
+      const id = setTimeout(
+        () => dispatch({ ...state, type: actionTypes.next, length }),
+        interval,
+      );
+
+      return () => clearTimeout(id);
+    }
+  }, [state.offset, state.active, interval]);
 
   useEffect(() => {
-    const id = setTimeout(() => dispatch({ type: 'done' }), transitionTime);
+    const id = setTimeout(
+      () => dispatch({ ...state, type: actionTypes.done }),
+      transitionTime,
+    );
+
     return () => clearTimeout(id);
   }, [state.desired]);
 
-  const style = {
+  const style: ICarouselStyle = {
     transform: 'translateX(0)',
     width: `${100 * lengthWithClones}%`,
     left: `-${(state.active + 1) * 100}%`,
-    transition: smooth,
   };
 
   const slideDistance = Math.abs(state.active - state.desired);
   const desiredDirectionOnSwipe = Math.sign(state.offset || 0);
 
-  const direction =
-    (slideDistance > length / 2 ? 1 : -1) *
-    Math.sign(state.desired - state.active);
-
-  const shift =
-    (100 * (desiredDirectionOnSwipe || direction)) / lengthWithClones;
+  if (
+    slideDistance === 1 ||
+    state.desired === 0 ||
+    state.desired === length - 1
+  ) {
+    direction =
+      (slideDistance > length / 2 ? 1 : -1) *
+      Math.sign(state.desired - state.active);
+    shift = (100 * (desiredDirectionOnSwipe || direction)) / lengthWithClones;
+  } else {
+    direction = Math.sign(state.active - state.desired);
+    shift =
+      (100 * slideDistance * (desiredDirectionOnSwipe || direction)) /
+      lengthWithClones;
+  }
 
   if (state.desired !== state.active) {
     style.transition = smooth;
@@ -151,12 +176,13 @@ export function useCarousel(
     }
   }
 
-  const returnType: Array<any> = [
-    state.active,
-    (n: number) => dispatch({ type: 'jump', desired: n }),
+  const setActive = (n: number) =>
+    dispatch({ ...state, type: actionTypes.jump, desired: n });
+
+  return {
+    active: state.active,
+    setActive,
     handlers,
     style,
-  ];
-
-  return returnType;
+  };
 }
