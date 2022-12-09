@@ -53,38 +53,21 @@ const Carousel = ({
       </div>
 
       {hasControls && (
-        <div className="carousel-arrows">
-          <div
-            className="carousel-arrows__arrow carousel-arrows__left"
-            onClick={handleSetActive((active - 1 + length) % length)}
-          >
-            <span>&larr;</span>
-          </div>
-          <span className="carousel-arrows__counter">{`0${
-            active + 1
-          }/0${length}`}</span>
-          <div
-            className="carousel-arrows__arrow carousel-arrows__right"
-            onClick={handleSetActive((active + 1) % length)}
-          >
-            <span>&rarr;</span>
-          </div>
+        <div>
           <div>
-            <div>
-              <div className="flex justify-center">
-                {slides.map((_, index) => (
-                  <div
-                    className={classnames(
-                      'bg-secondary-dark',
-                      'rounded-full inline-block w-5 h-5 m-1 cursor-pointer',
-                      {
-                        'bg-secondary-light': active === index,
-                      },
-                    )}
-                    onClick={handleSetActive(index)}
-                  />
-                ))}
-              </div>
+            <div className="flex justify-center">
+              {slides.map((_, index) => (
+                <div
+                  className={classnames(
+                    'bg-secondary-dark',
+                    'rounded-full inline-block w-5 h-5 m-1 cursor-pointer',
+                    {
+                      'bg-secondary-light': active === index,
+                    },
+                  )}
+                  onClick={handleSetActive(index)}
+                />
+              ))}
             </div>
           </div>
         </div>
