@@ -31,6 +31,11 @@ module.exports = {
         light: '#212226',
       },
       white: '#FFFFFF',
+      blue: {
+        dark: '#1d4568',
+        DEFAULT: '#286090',
+        light: '#3c88c9',
+      },
     },
     fontFamily: {
       oswald: 'Oswald, sans-serif',
@@ -136,6 +141,27 @@ module.exports = {
           fontFamily: theme('fontFamily.firaCode'),
           color: '#C0ACAC',
         },
+        '.body-6': {
+          fontSize: '0.75rem',
+          lineHeight: '120.9%',
+          letterSpacing: '0.1em',
+          fontWeight: theme('fontWeight.light'),
+          fontFamily: theme('fontFamily.firaSans'),
+          color: 'rgba(255, 255, 255, 0.44)',
+          '@screen xl': {
+            fontSize: '1rem',
+          },
+        },
+        '.body-7': {
+          fontSize: '0.75rem',
+          lineHeight: '120.9%',
+          fontWeight: theme('fontWeight.light'),
+          fontFamily: theme('fontFamily.firaSans'),
+          color: '#575252',
+          '@screen xl': {
+            fontSize: '0.875rem',
+          },
+        },
         '.navbar': {
           fontSize: '1.25rem',
           lineHeight: '120.9%',
@@ -185,7 +211,7 @@ module.exports = {
         },
         '.error-input': {
           fontSize: '0.625rem',
-          lineHeight: '120.9%',
+          lineHeight: '133%',
           fontWeight: theme('fontWeight.normal'),
           fontFamily: theme('fontFamily.inter'),
           color: theme('colors.primary.DEFAULT'),
