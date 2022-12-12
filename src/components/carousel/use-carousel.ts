@@ -95,12 +95,23 @@ export function useCarousel(
   interval = 15000,
   transitionTime = 300,
 ) {
-  const [state, dispatch] = useReducer(carouselReducer, initialCarouselState);
   let direction: number = 0;
   let shift: number = 0;
+  const [{ offset, desired, active, type }, dispatch] = useReducer(
+    carouselReducer,
+    initialCarouselState,
+  );
   const elastic: string = `transform ${transitionTime}ms cubic-bezier(0.68, 0, 0.265, 1.55)`;
   const smooth: string = `transform ${transitionTime}ms ease-out`;
   const lengthWithClones: number = length + 2;
+  const style: ICarouselStyle = {
+    transform: 'translateX(0)',
+    width: `${100 * lengthWithClones}%`,
+    left: `-${(active + 1) * 100}%`,
+  };
+
+  const slideDistance = Math.abs(active - desired);
+  const desiredDirectionOnSwipe = Math.sign(offset || 0);
 
   const handlers = useSwipeable({
     onSwiping(e) {
@@ -119,67 +130,54 @@ export function useCarousel(
     trackTouch: true,
   });
 
-  // eslint-disable-next-line consistent-return
   useEffect(() => {
-    if (interval) {
-      const id = setTimeout(
-        () => dispatch({ ...state, type: actionTypes.next, length }),
-        interval,
-      );
+    const id = setTimeout(
+      () => dispatch({ desired, type: actionTypes.next, length }),
+      interval,
+    );
 
-      return () => clearTimeout(id);
-    }
-  }, [state.offset, state.active, interval]);
+    return () => clearTimeout(id);
+  }, [offset, active, interval, desired, length]);
 
   useEffect(() => {
     const id = setTimeout(
-      () => dispatch({ ...state, type: actionTypes.done }),
+      () => dispatch({ type: actionTypes.done }),
       transitionTime,
     );
 
     return () => clearTimeout(id);
-  }, [state.desired]);
-
-  const style: ICarouselStyle = {
-    transform: 'translateX(0)',
-    width: `${100 * lengthWithClones}%`,
-    left: `-${(state.active + 1) * 100}%`,
-  };
-
-  const slideDistance = Math.abs(state.active - state.desired);
-  const desiredDirectionOnSwipe = Math.sign(state.offset || 0);
+  }, [desired, transitionTime]);
 
   if (
-    (state.desired === 0 || state.desired === length - 1) &&
-    (state.active === 0 || state.active === length - 1)
+    (desired === 0 || desired === length - 1) &&
+    (active === 0 || active === length - 1)
   ) {
     direction =
-      (slideDistance > length / 2 ? 1 : -1) *
-      Math.sign(state.desired - state.active);
+      (slideDistance > length / 2 ? 1 : -1) * Math.sign(desired - active);
     shift = (100 * (desiredDirectionOnSwipe || direction)) / lengthWithClones;
   } else {
-    direction = Math.sign(state.active - state.desired);
+    direction = Math.sign(active - desired);
     shift =
       (100 * slideDistance * (desiredDirectionOnSwipe || direction)) /
       lengthWithClones;
   }
 
-  if (state.desired !== state.active) {
+  if (desired !== active) {
     style.transition = smooth;
     style.transform = `translateX(${shift}%)`;
-  } else if (state.type === 'drag') {
-    if (state.offset !== 0) {
-      style.transform = `translateX(${state.offset}px)`;
+  } else if (type === 'drag') {
+    if (offset !== 0) {
+      style.transform = `translateX(${offset}px)`;
     } else {
       style.transition = elastic;
     }
   }
 
   const setActive = (n: number) =>
-    dispatch({ ...state, type: actionTypes.jump, desired: n });
+    dispatch({ type: actionTypes.jump, desired: n });
 
   return {
-    active: state.active,
+    active,
     setActive,
     handlers,
     style,
