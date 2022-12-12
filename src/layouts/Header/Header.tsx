@@ -14,7 +14,7 @@ export function Header(props: any) {
   );
 
   return (
-    <div className="flex flex-row justify-between items-center w-full h-[27vw] px-[5vw] bg-[#16171B]">
+    <div className="flex flex-row justify-between items-center w-full h-[27vw] px-[5vw] bg-primary bg-cover">
       {/* Then replace tempLoginButton to Reusable Button Component */}
       {isLoggedIn ? <ProfileButton /> : tempLogInButton}
       <BurgerMenu />
