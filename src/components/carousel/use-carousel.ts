@@ -150,9 +150,8 @@ export function useCarousel(
   const desiredDirectionOnSwipe = Math.sign(state.offset || 0);
 
   if (
-    slideDistance === 1 ||
-    state.desired === 0 ||
-    state.desired === length - 1
+    (state.desired === 0 || state.desired === length - 1) &&
+    (state.active === 0 || state.active === length - 1)
   ) {
     direction =
       (slideDistance > length / 2 ? 1 : -1) *
