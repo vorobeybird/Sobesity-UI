@@ -2,15 +2,14 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import classnames from 'classnames';
 import React from 'react';
-import PropTypes, { number, bool } from 'prop-types';
 
 import { useCarousel } from './use-carousel';
 import { CarouselProp } from './carousel.types';
 
 const Carousel = ({
   children,
-  interval,
-  transitionTime,
+  interval = 15000,
+  transitionTime = 500,
   hasControls = true,
 }: CarouselProp) => {
   const slides = React.Children.toArray(children);
@@ -47,7 +46,6 @@ const Carousel = ({
               {slide}
             </div>
           ))}
-          {/* Clone Ahead */}
           <div className="w-full">{slides[0]}</div>
         </div>
       </div>
@@ -66,6 +64,8 @@ const Carousel = ({
                     },
                   )}
                   onClick={handleSetActive(index)}
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={index}
                 />
               ))}
             </div>
@@ -74,20 +74,6 @@ const Carousel = ({
       )}
     </div>
   );
-};
-
-Carousel.propTypes = {
-  children: PropTypes.element,
-  interval: number,
-  transitionTime: number,
-  hasControls: bool,
-};
-
-Carousel.defaultProps = {
-  children: null,
-  interval: 15000,
-  transitionTime: 500,
-  hasControls: true,
 };
 
 export default Carousel;

@@ -1,7 +1,7 @@
 export type CarouselProp = {
   children: React.ReactNode;
-  interval: number;
-  transitionTime: number;
+  interval?: number;
+  transitionTime?: number;
   hasControls?: boolean;
 };
 
