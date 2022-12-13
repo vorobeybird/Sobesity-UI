@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, Dispatch } from 'react';
 
 import { SwipeEventData, useSwipeable } from 'react-swipeable';
 
@@ -72,7 +72,7 @@ function carouselReducer(
 
 function swiped(
   event: SwipeEventData,
-  dispatch: React.Dispatch<ICarouselAction>,
+  dispatch: Dispatch<ICarouselAction>,
   length: number,
   direction: number,
 ): void {
