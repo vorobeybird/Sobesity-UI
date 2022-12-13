@@ -1,17 +1,16 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import classnames from 'classnames';
-import React from 'react';
+import React, { FC } from 'react';
 
 import { useCarousel } from './use-carousel';
 import { CarouselProp } from './carousel.types';
 
-const Carousel = ({
+const Carousel: FC<CarouselProp> = ({
   children,
   interval = 15000,
   transitionTime = 500,
   hasControls = true,
-}: CarouselProp) => {
+}) => {
   const slides = React.Children.toArray(children);
   const { length } = slides;
   const { active, setActive, handlers, style } = useCarousel(
@@ -37,9 +36,7 @@ const Carousel = ({
           <div className="w-full">{slides[length - 1]}</div>
           {slides.map((slide, index) => (
             <div
-              className={classnames('w-full', {
-                active: active === index,
-              })}
+              className="w-full"
               // eslint-disable-next-line react/no-array-index-key
               key={index}
             >
@@ -49,27 +46,24 @@ const Carousel = ({
           <div className="w-full">{slides[0]}</div>
         </div>
       </div>
-
       {hasControls && (
-        <div>
-          <div>
-            <div className="flex justify-center">
-              {slides.map((_, index) => (
-                <div
-                  className={classnames(
-                    'bg-secondary-dark',
-                    'rounded-full inline-block w-5 h-5 m-1 cursor-pointer',
-                    {
-                      'bg-secondary-light': active === index,
-                    },
-                  )}
-                  onClick={handleSetActive(index)}
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={index}
-                />
-              ))}
-            </div>
-          </div>
+        <div className="flex justify-center">
+          {slides.map((_, index) => (
+            <button
+              type="button"
+              aria-label="toggle slider"
+              className={classnames(
+                'bg-secondary-dark',
+                'border-0 rounded-full inline-block w-5 h-5 m-1 cursor-pointer',
+                {
+                  'bg-secondary-light': active === index,
+                },
+              )}
+              onClick={handleSetActive(index)}
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+            />
+          ))}
         </div>
       )}
     </div>

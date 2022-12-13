@@ -32,20 +32,23 @@ function App() {
           </div>
         </Carousel>
         <Carousel>
-          <div className="image-container">
+          <div>
             <img
+              className="w-full h-60 object-cover pointer-events-none"
               src="https://images.unsplash.com/photo-1446729444801-31245ddba81a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
               alt="slide"
             />
           </div>
-          <div className="image-container">
+          <div>
             <img
+              className="w-full h-60 object-cover pointer-events-none"
               src="https://images.unsplash.com/photo-1422207258071-70754198c4a2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=741&q=80"
               alt="slide"
             />
           </div>
-          <div className="image-container">
+          <div>
             <img
+              className="w-full h-60 object-cover pointer-events-none"
               src="https://images.unsplash.com/photo-1473864803180-ca1b3d93c9a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80"
               alt="slide"
             />

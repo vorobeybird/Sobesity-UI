@@ -1,5 +1,7 @@
 import { useReducer, useEffect } from 'react';
-import { useSwipeable } from 'react-swipeable';
+
+import { SwipeEventData, useSwipeable } from 'react-swipeable';
+
 import {
   ICarouselState,
   ICarouselAction,
@@ -21,8 +23,8 @@ function next(length: number, current: number): number {
   return (current + 1) % length;
 }
 
-function threshold(target: Element): number {
-  const width = target.clientWidth;
+function threshold(target: SwipeEventData): number {
+  const width = target.absX;
 
   return width / 10;
 }
@@ -32,32 +34,32 @@ function carouselReducer(
   action: ICarouselAction,
 ): ICarouselState {
   switch (action.type) {
-    case 'jump':
+    case actionTypes.jump:
       return {
         ...state,
         desired: action.desired,
         type: action.type,
       };
-    case 'next':
+    case actionTypes.next:
       return {
         ...state,
         desired: next(action.length, state.active),
         type: action.type,
       };
-    case 'prev':
+    case actionTypes.prev:
       return {
         ...state,
         desired: previous(action.length, state.active),
         type: action.type,
       };
-    case 'done':
+    case actionTypes.done:
       return {
         ...state,
         offset: NaN,
         active: state.desired,
         type: action.type,
       };
-    case 'drag':
+    case actionTypes.drag:
       return {
         ...state,
         offset: action.offset,
@@ -69,22 +71,22 @@ function carouselReducer(
 }
 
 function swiped(
-  e: any,
-  dispatch: any,
+  event: SwipeEventData,
+  dispatch: React.Dispatch<ICarouselAction>,
   length: number,
   direction: number,
 ): void {
-  const t = threshold(e.event.target);
-  const d = direction * -e.deltaX;
+  const t = threshold(event);
+  const d = direction * -event.deltaX;
 
   if (d >= t) {
     dispatch({
-      type: direction > 0 ? 'next' : 'prev',
+      type: direction > 0 ? actionTypes.next : actionTypes.prev,
       length,
     });
   } else {
     dispatch({
-      type: 'drag',
+      type: actionTypes.drag,
       offset: 0,
     });
   }
@@ -132,7 +134,7 @@ export function useCarousel(
 
   useEffect(() => {
     const id = setTimeout(
-      () => dispatch({ desired, type: actionTypes.next, length }),
+      () => dispatch({ type: actionTypes.next, length }),
       interval,
     );
 

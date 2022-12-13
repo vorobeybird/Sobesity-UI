@@ -33,13 +33,11 @@ interface ICarouselActionJump {
 
 interface ICarouselActionNext {
   type: CarouselActionTypes.next;
-  desired: number;
   length: number;
 }
 
 interface ICarouselActionPrev {
   type: CarouselActionTypes.prev;
-  desired: number;
   length: number;
 }
 
