@@ -49,7 +49,11 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        primary: "url('/src/assets/images/new_year.png')",
+       },
+    },
   },
   plugins: [
     plugin(function ({ addComponents, theme }) {
