@@ -19,13 +19,15 @@
     },
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": ["tsconfig.json"]
+    "project": ["./tsconfig.json"]
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
+    "newline-before-return": "error",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
+    "prettier/prettier": ["error", {"endOfLine": "auto"}],
     "object-curly-newline": [
       "warn",
       {

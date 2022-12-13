@@ -6,6 +6,7 @@ export function InfoCardHeader(props: any) {
     if (cardType === 'list') {
       return 'info-card-header-white';
     }
+
     return 'info-card-header-bloody';
   };
 

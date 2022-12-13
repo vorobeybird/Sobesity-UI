@@ -7,6 +7,7 @@ export function InfoCard(props: any) {
   const cardStyles = `info-card ${
     isOdd ? 'info-card-gradient-left' : 'info-card-gradient-right'
   }`;
+
   return (
     <div className={cardStyles}>
       <InfoCardHeader cardType={cardType} cardHeader={cardHeader} />
