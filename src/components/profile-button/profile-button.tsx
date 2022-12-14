@@ -1,10 +1,13 @@
 import profileLogo from '../../assets/icons/avatar.svg';
-import './profile-button.css';
 
 export function ProfileButton() {
   return (
-    <div className="profile-button">
-      <img src={profileLogo} alt="Profile logo" />
+    <div className="flex">
+      <img
+        src={profileLogo}
+        alt="Profile logo"
+        className="sm:w-6 sm:h-6 md:w-12 md:h-12"
+      />
     </div>
   );
 }

@@ -1,15 +1,18 @@
 import languagesLogos from '../../assets/icons/languages.svg';
-import './footer.css';
 
 export function Footer() {
   return (
-    <div className="footer">
-      <p>
+    <div className="w-full sm:h-48 sm:p-6 md:h-72 md:px-12 bg-black-dark flex flex-col justify-center items-center">
+      <p className="font-firaSans font-light sm:text-base md:text-3xl text-white text-center sm:mb-4 md:mb-5">
         Testing a large number of languages and skills.
         <br />
         Most Popular:
       </p>
-      <img src={languagesLogos} alt="languages logos" />
+      <img
+        src={languagesLogos}
+        alt="languages logos"
+        className="sm:w-96 md:w-9/12"
+      />
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import BurgerMenu from '../../components/burger-menu';
 import ProfileButton from '../../components/profile-button';
-import './header.css';
 
 export function Header(props: any) {
   const { isLoggedIn } = props;
@@ -15,7 +14,7 @@ export function Header(props: any) {
   );
 
   return (
-    <div className="header-wrapper">
+    <div className="flex flex-row justify-between items-center w-full sm:h-28 sm:px-6 md:h-60 md:px-12 bg-black-dark">
       {/* Then replace tempLoginButton to Reusable Button Component */}
       {isLoggedIn ? <ProfileButton /> : tempLogInButton}
       <BurgerMenu />
