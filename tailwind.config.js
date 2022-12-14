@@ -6,6 +6,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      inherit: 'inherit',
       primary: {
         dark: '#641E1F',
         darkest: '#461A1B',
@@ -28,11 +31,17 @@ module.exports = {
         light: '#212226',
       },
       white: '#FFFFFF',
+      blue: {
+        dark: '#1d4568',
+        DEFAULT: '#286090',
+        light: '#3c88c9',
+      },
     },
     fontFamily: {
       oswald: 'Oswald, sans-serif',
       firaSans: 'Fira Sans, sans-serif',
       firaCode: 'Fira Code, monospace',
+      inter: 'Inter, sans-serif',
     },
     screens: {
       sm: '414px',
@@ -40,10 +49,14 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        primary: "url('/src/assets/images/new_year.png')",
+       },
+    },
   },
   plugins: [
-    plugin(function ({ addComponents, theme }) {
+    plugin(function ({ addComponents, addUtilities, theme }) {
       const typography = {
         '.h1': {
           fontSize: '1.5rem',
@@ -132,6 +145,27 @@ module.exports = {
           fontFamily: theme('fontFamily.firaCode'),
           color: '#C0ACAC',
         },
+        '.body-6': {
+          fontSize: '0.75rem',
+          lineHeight: '120.9%',
+          letterSpacing: '0.1em',
+          fontWeight: theme('fontWeight.light'),
+          fontFamily: theme('fontFamily.firaSans'),
+          color: 'rgba(255, 255, 255, 0.44)',
+          '@screen xl': {
+            fontSize: '1rem',
+          },
+        },
+        '.body-7': {
+          fontSize: '0.75rem',
+          lineHeight: '120.9%',
+          fontWeight: theme('fontWeight.light'),
+          fontFamily: theme('fontFamily.firaSans'),
+          color: '#575252',
+          '@screen xl': {
+            fontSize: '0.875rem',
+          },
+        },
         '.navbar': {
           fontSize: '1.25rem',
           lineHeight: '120.9%',
@@ -179,8 +213,33 @@ module.exports = {
             fontSize: '1.25rem',
           },
         },
+        '.error-input': {
+          fontSize: '0.625rem',
+          lineHeight: '133%',
+          fontWeight: theme('fontWeight.normal'),
+          fontFamily: theme('fontFamily.inter'),
+          color: theme('colors.primary.DEFAULT'),
+          '@screen xl': {
+            fontSize: '0.75rem',
+          },
+        },
       };
+      const utilities = {
+        '.backface-visible': {
+          'backface-visibility': 'visible',
+          '-moz-backface-visibility': 'visible',
+          '-webkit-backface-visibility': 'visible',
+          '-ms-backface-visibility': 'visible'
+        },
+        '.backface-hidden': {
+          'backface-visibility': 'hidden',
+          '-moz-backface-visibility': 'hidden',
+          '-webkit-backface-visibility': 'hidden',
+          '-ms-backface-visibility': 'hidden'
+        }
+      }
       addComponents(typography);
+      addUtilities(utilities);
     }),
   ],
 };

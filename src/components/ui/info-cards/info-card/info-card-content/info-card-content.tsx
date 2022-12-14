@@ -6,9 +6,10 @@ export function InfoCardContent(props: any) {
   return (
     <div className="info-card-content-wrapper">
       {cardType === 'list' ? (
-        cardContent.map((elem: any) => {
+        cardContent.map((elem: any, index: number) => {
           return (
-            <div className="info-card-content-items">
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={index} className="info-card-content-items">
               <div className="info-card-content-item">
                 <span className="info-card-content-item-dash" />
               </div>

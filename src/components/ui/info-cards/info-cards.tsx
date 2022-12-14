@@ -18,6 +18,7 @@ export function InfoCards() {
             cardHeader={elem.header}
             cardContent={elem.content}
             isOdd={Boolean(index % 2)}
+            key={elem.id}
           />
         );
       })}
