@@ -10,8 +10,8 @@ function App() {
     <div className="grid grid-rows-6 bg-black-dark ">
       <Header isLoggedIn />
       {/* <h1 className="body-4">Sobecity</h1> */}
-      <div className="row-span-4 flex flex-col items-center px-5">
-        <div className="w-full bg-primary-light ">
+      <div className="row-span-4 flex flex-col items-center px-[60px]">
+        <div className="w-full ">
           <CreateAccount />
         </div>
       </div>
