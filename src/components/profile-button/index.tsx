@@ -1,3 +1,3 @@
-import { ProfileButton } from './ProfileButton';
+import { ProfileButton } from './profile-button';
 
 export default ProfileButton;

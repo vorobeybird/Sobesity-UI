@@ -1,0 +1,7 @@
+.burger-menu-wrapper {
+  @apply flex flex-col justify-between sm:gap-1 md:gap-2;
+}
+
+.burger-menu-item {
+  @apply sm:w-5 md:w-10 sm:h-px md:h-1 bg-white;
+}
