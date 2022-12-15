@@ -1,14 +1,21 @@
-import InfoCards from 'components/ui/info-cards';
+// import InfoCards from 'components/ui/info-cards';
+
+// import Carousel from 'components/carousel';
+import { CreateAccount } from 'components/ui/info-components/create-account';
 import { Footer } from 'layouts/footer/Footer';
-import Carousel from 'components/carousel';
 import Header from './layouts/Header';
 
 function App() {
   return (
-    <div>
+    <div className="grid grid-rows-6 bg-black-dark ">
       <Header isLoggedIn />
-      <h1 className="body-4">Sobecity</h1>
-      <div className="flex flex-col align-middle justify-center">
+      {/* <h1 className="body-4">Sobecity</h1> */}
+      <div className="row-span-4 flex flex-col items-center px-5">
+        <div className="w-full bg-primary-light ">
+          <CreateAccount />
+        </div>
+      </div>
+      {/* <div className="flex flex-col align-middle justify-center">
         <Carousel interval={10000}>
           <div className="bg-black-dark p-16 ">
             <h1 className="text-center text-secondary-light text-2xl">
@@ -54,8 +61,8 @@ function App() {
             />
           </div>
         </Carousel>
-      </div>
-      <InfoCards />
+        <InfoCards />
+      </div> */}
       <Footer />
     </div>
   );

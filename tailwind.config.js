@@ -50,6 +50,10 @@ module.exports = {
       xl: '1280px',
     },
     extend: {
+      height: {
+        '128': '32rem',
+        '132': '36rem'
+      },
       backgroundImage: {
         primary: "url('/src/assets/images/new_year.png')",
        },
