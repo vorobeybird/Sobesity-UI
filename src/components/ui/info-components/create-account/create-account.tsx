@@ -14,7 +14,7 @@ const CreateAccount: FC<any> = () => {
         className={classNames(
           'grid col-span-2 grid-cols-[0_240px] grid-rows-[0_235px] items-center justify-items-center',
           'md:col-span-1 md:grid-cols-[0_450px] md:grid-rows-[0_400px] md:-ml-12',
-          'lg:col-span-1 lg:grid-cols-[0_650px] lg:grid-rows-[0_600px] lg:-ml-12',
+          'lg:grid-cols-[0_650px] lg:grid-rows-[0_600px] lg:-ml-12',
         )}
       >
         <div
@@ -39,12 +39,12 @@ const CreateAccount: FC<any> = () => {
           />
         </div>
       </div>
-      <div className="flex flex-col justify-end lg:items-center lg:justify-center">
-        <div className="flex flex-col h2 lg:h3 text-right mr-[20px] lg:flex-row">
+      <div className="flex flex-col justify-end md:items-center md:justify-center">
+        <div className="flex flex-col mr-5 text-right h2 md:h3 md:flex-row">
           <p className="pb-3 mr-3 lg:pb-12">Create</p>
-          <p className="pb-3">an account</p>
+          <p className="pb-6">an account</p>
         </div>
-        <div className="hidden lg:block lg:body-1 lg:max-w-[418px] lg:text-center">
+        <div className="hidden md:block md:body-1 md:max-w-[300px] md:text-center lg:max-w-[418px] ">
           Platea adipiscing in dolor ornare ut. Dui ex. Morbi sodales et. Mollis
           amet, quis, odio. Dictum faucibus. Aenean in amet, platea sed non ut.
           Tempus nunc dictum. In ipsum tempus non ultricies. Vestibulum ornare
