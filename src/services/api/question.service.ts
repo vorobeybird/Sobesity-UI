@@ -1,16 +1,6 @@
 import { AxiosResponse } from 'axios';
+import { Question, QuestionCategory } from 'store/question.store';
 import { apiClient } from './client';
-
-type QuestionCategory = {
-  id: number;
-  name: string;
-};
-
-type Question = {
-  question: string;
-  answers: string[];
-  correctAnswerId: number;
-};
 
 interface QuestionService {
   getAllCategories(): Promise<AxiosResponse<QuestionCategory[]>>;

@@ -1,8 +1,15 @@
 import { CreateAccount } from 'components/ui/info-components/create-account';
 import { Footer } from 'layouts/footer/Footer';
+import Carousel from 'components/carousel';
+import { useAppDispatch } from 'hooks';
+import { getAllCategories } from 'store/question.store';
 import Header from './layouts/Header';
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  dispatch(getAllCategories());
+
   return (
     <div className="grid bg-black-dark justify-items-center">
       <Header isLoggedIn />
