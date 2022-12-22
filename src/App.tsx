@@ -1,9 +1,15 @@
 import InfoCards from 'components/ui/info-cards';
 import { Footer } from 'layouts/footer/Footer';
 import Carousel from 'components/carousel';
+import { useAppDispatch } from 'hooks';
+import { getAllCategories } from 'store/question.store';
 import Header from './layouts/Header';
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  dispatch(getAllCategories());
+
   return (
     <div>
       <Header isLoggedIn />
