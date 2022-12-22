@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
 import classNames from 'classnames';
 import LaptopImage from '../../../../assets/images/laptop.svg';
 
-const CreateAccount: FC<any> = () => {
+const CreateAccount = () => {
   return (
     <div
       className={classNames(
