@@ -1,14 +1,14 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import Input from 'components/shared/inputs';
-import Button from 'components/shared/buttons';
+import Input from 'components/shared/input';
+import Button from 'components/shared/button';
 import { Google, Facebook, Lock, Envelope } from 'components/shared/icons';
 
-import { SignInSchema, SignUpSchema, FormInputType } from './AuthFormShemas';
-import { FormProps, FormType } from './AuthForm.types';
+import { SignInSchema, SignUpSchema, FormInputType } from './auth-form.shemas';
+import { FormProps, FormType } from './auth-form.types';
 
-const AuthForm = ({ type, action }: FormProps) => {
+export const AuthForm = ({ type, action }: FormProps) => {
   const {
     handleSubmit,
     register,
@@ -35,14 +35,16 @@ const AuthForm = ({ type, action }: FormProps) => {
         <div className="pt-[27px] xl:pt-[29px] w-full">
           <Button
             type="button"
-            className="h-[40px] xl:h-[48px] w-full mb-2 xl:mb-2.5 pl-[15px] xl:pl-[23px] items-center gap-[22px]  border-tertiary-dark body-4 text-white xl:hover:bg-secondary-light xl:hover:text-black-dark focus:bg-secondary"
+            containerStyle="w-full h-[40px] xl:h-[48px] inline-block mb-2 xl:mb-2.5"
+            className="inline-flex w-full h-full border-[1px] pl-[15px] xl:pl-[23px] items-center gap-[22px] border-tertiary-dark body-4 text-white xl:hover:bg-secondary-light xl:hover:text-black-dark focus:bg-secondary"
           >
             <Google className="xl:scale-125" />
             <p className="flex-grow-0">Sign in with Google Accounts</p>
           </Button>
           <Button
             type="button"
-            className="h-[40px] xl:h-[48px] pl-[15px] xl:pl-[23px] gap-[48px] w-full items-center border-tertiary-dark body-4 text-white bg-blue xl:hover:bg-blue-light xl:hover:text-black-dark focus:bg-blue-dark focus:ring-transparent"
+            containerStyle="w-full h-[40px] xl:h-[48px] inline-block mb-2 xl:mb-2.5"
+            className="pl-[15px] xl:pl-[23px] gap-[48px] border-[1px] w-full h-full inline-flex items-center border-tertiary-dark body-4 text-white bg-blue xl:hover:bg-blue-light xl:hover:text-black-dark focus:bg-blue-dark focus:ring-transparent"
           >
             <Facebook className="xl:scale-125" />
             <p className="flex-grow-0"> Sign in with Facebook</p>
@@ -120,16 +122,15 @@ const AuthForm = ({ type, action }: FormProps) => {
                 privacy policy
               </a>
             </p>
-            <div className="w-3 h-3 xl:w-4 xl:h-4 flex flex-shrink-0 justify-center items-center border border-tertiary-dark">
+            <div className="flex items-center justify-center flex-shrink-0 w-3 h-3 border xl:w-4 xl:h-4 border-tertiary-dark">
               <input
                 {...register('policy')}
                 id="accept"
                 type="checkbox"
-                className="absolute opacity-0 peer
-              "
+                className="absolute opacity-0 peer "
               />
               <svg
-                className="fill-primary hidden w-2 h-2 xl:w-3 xl:h-3 pointer-events-none peer-checked:block"
+                className="hidden w-2 h-2 pointer-events-none fill-primary xl:w-3 xl:h-3 peer-checked:block"
                 viewBox="0 0 20 20"
               >
                 <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
@@ -152,7 +153,7 @@ const AuthForm = ({ type, action }: FormProps) => {
         <Button
           type="submit"
           variant="primary"
-          className="h-[40px] xl:h-[48px] w-full"
+          containerStyle="h-[40px] xl:h-[48px] w-full"
         >
           Continue
         </Button>
@@ -161,7 +162,7 @@ const AuthForm = ({ type, action }: FormProps) => {
             Don’t have an account?{' '}
             <a
               href="/"
-              className=" inline-block underline text-primary focus:outline-none"
+              className="inline-block underline text-primary focus:outline-none"
             >
               Sign up
             </a>
@@ -171,5 +172,3 @@ const AuthForm = ({ type, action }: FormProps) => {
     </form>
   );
 };
-
-export default AuthForm;

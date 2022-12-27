@@ -49,11 +49,7 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
     },
-    extend: {
-      backgroundImage: {
-        primary: "url('/src/assets/images/new_year.png')",
-       },
-    },
+    extend: {},
   },
   plugins: [
     plugin(function ({ addComponents, addUtilities, theme }) {
@@ -229,15 +225,15 @@ module.exports = {
           'backface-visibility': 'visible',
           '-moz-backface-visibility': 'visible',
           '-webkit-backface-visibility': 'visible',
-          '-ms-backface-visibility': 'visible'
+          '-ms-backface-visibility': 'visible',
         },
         '.backface-hidden': {
           'backface-visibility': 'hidden',
           '-moz-backface-visibility': 'hidden',
           '-webkit-backface-visibility': 'hidden',
-          '-ms-backface-visibility': 'hidden'
-        }
-      }
+          '-ms-backface-visibility': 'hidden',
+        },
+      };
       addComponents(typography);
       addUtilities(utilities);
     }),
