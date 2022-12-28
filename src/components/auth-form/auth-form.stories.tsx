@@ -19,5 +19,5 @@ SignIn.args = {
 
 export const SignUp = Template.bind({});
 SignUp.args = {
-  type: FormType.SignIn,
+  type: FormType.SignUp,
 };
