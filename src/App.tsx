@@ -1,4 +1,5 @@
 import { CreateAccount } from 'components/ui/info-components/create-account';
+import TimeSlot from 'components/ui/info-components/time-slot';
 import { Footer } from 'layouts/footer/Footer';
 import { useAppDispatch } from 'hooks';
 import { getAllCategories } from 'store/question.store';
@@ -17,6 +18,7 @@ function App() {
         <div className="w-full py-5">
           <CreateAccount />
         </div>
+        <TimeSlot />
       </div>
       <Footer />
     </div>
