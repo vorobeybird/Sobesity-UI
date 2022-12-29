@@ -3,7 +3,10 @@ export const enum FormType {
   SignUp = 'signUp',
 }
 
-export type FormProps = {
+export interface FormProps {
+  /**
+   * What kind of form to use
+   */
   type: FormType;
   action: () => void;
-};
+}
