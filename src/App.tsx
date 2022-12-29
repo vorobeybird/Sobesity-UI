@@ -14,7 +14,7 @@ function App() {
       <Header isLoggedIn />
       {/* <h1 className="body-4">Sobecity</h1> */}
       <div className="flex flex-col w-min-[370px] w-max-[1280px] items-center px-6 lg:px-14">
-        <div className="w-full py-5">
+        <div className="w-full py-5 text-primary-dark">
           <CreateAccount />
         </div>
       </div>

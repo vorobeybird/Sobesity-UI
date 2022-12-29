@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import App from 'App';
 import { store } from './store';
 
+import 'localization/i18n';
+
 import './index.css';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
