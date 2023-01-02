@@ -6,6 +6,7 @@ module.exports = {
     '@storybook/addon-interactions',
     '@storybook/preset-create-react-app',
     'storybook-addon-pseudo-states',
+    'storybook-react-i18next',
   ],
   framework: '@storybook/react',
   core: {

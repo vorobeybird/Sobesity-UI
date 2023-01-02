@@ -1,6 +1,8 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
-import '../src/index.css';
+import i18n from '../src/localization/i18next';
+
+import 'index.css';
 
 const viewports = {
   sm: {
@@ -32,5 +34,11 @@ export const parameters = {
   },
   viewport: {
     viewports: { ...viewports, ...INITIAL_VIEWPORTS },
+  },
+  i18n,
+  locale: 'en',
+  locales: {
+    en: 'English',
+    ru: 'Russian',
   },
 };

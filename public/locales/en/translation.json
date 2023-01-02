@@ -1,0 +1,98 @@
+{
+  "PAGES": {
+    "HOME": {
+      "MAIN_SECTION": {
+        "TITLE": "Interviewing: the most profitable skill you can learn",
+        "DESCRIPTION": "Don't miss out on a great job opportunity Practice live interviews with peers",
+        "BUTTON": "Start practicing"
+      },
+      "CREATE_AN_ACCOUNT_SECTION": {
+        "TITLE": "<0>Create</0> <1>an account</1>",
+        "DESCRIPTION": "Platea adipiscing in dolor ornare ut. Dui ex. Morbi sodales et. Mollis amet, quis, odio. Dictum faucibus. Aenean in amet, platea sed non ut. Tempus nunc dictum. In ipsum tempus non ultricies. Vestibulum ornare malesuada est. Interdum amet mattis accumsan nunc vitae cras faucibus."
+      },
+      "TAKE_THE_TEST_SECTION": {
+        "TITLE": "Take the 10 minute test",
+        "DESCRIPTION": "Platea adipiscing in dolor ornare ut. Dui ex. Morbi sodales et. Mollis amet, quis, odio. Dictum faucibus. Aenean in amet, platea sed non ut. Tempus nunc dictum. In ipsum tempus non ultricies. Vestibulum ornare malesuada est. Interdum amet mattis accumsan nunc vitae cras faucibus."
+      },
+      "SPECIFY_TIME_SLOT_SECTION": {
+        "TITLE": "Specify time slot",
+        "DESCRIPTION": "Platea adipiscing in dolor ornare ut. Dui ex. Morbi sodales et. Mollis amet, quis, odio. Dictum faucibus. Aenean in amet, platea sed non ut. Tempus nunc dictum. In ipsum tempus non ultricies. Vestibulum ornare malesuada est. Interdum amet mattis accumsan nunc vitae cras faucibus."
+      },
+      "FIND_YOUR_INTERVIEWER_SECTION": {
+        "TITLE": "Find your interviewer",
+        "DESCRIPTION": "Platea adipiscing in dolor ornare ut. Dui ex. Morbi sodales et. Mollis amet, quis, odio. Dictum faucibus. Aenean in amet, platea sed non ut. Tempus nunc dictum. In ipsum tempus non ultricies. Vestibulum ornare malesuada est. Interdum amet mattis accumsan nunc vitae cras faucibus."
+      },
+      "SCREENING_SECTION": {
+        "TITLE": "Screening",
+        "DESCRIPTION": "Choose your technical role and answer questions, solve problems in real time depending on the level of complexity. Get an automatic assessment of your knowledge to further hone your skills. Our complete library of questions is suitable for both beginners and professionals."
+      },
+      "INTERVIEWS_SECTION": {
+        "TITLE": "Interviews",
+        "DESCRIPTION": "Conduct interviews online, check yourself and your interlocutor. Use our libraries and templates to streamline your work to improve your programming skills. Move to the next level after reaching your goals."
+      },
+      "PRACTICE_ANSWERING_INTERVIEW_QUESTIONS_SECTION": {
+        "TITLE": "Practice answering interview questions",
+        "DESCRIPTION": "Answer interview questions to test your knowledge and improve your skills. Exchange experience with your rival and help each other in one common goal. Advance to the next level of difficulty when you're ready."
+      },
+      "FOR_WHOM_SECTION": {
+        "DATA_ANALYST_CATEGORY": "Data analyst",
+        "DATA_SCIENTIST_CATEGORY": "Data scientist",
+        "USABILITY_SPECIALIST_CATEGORY": "Usability Specialist",
+        "USABILITY_ANALYST_CATEGORY": "Usability Analyst",
+        "FRONTEND_DEVELOPER_CATEGORY": "Front-end Developer",
+        "SOFTWARE_ENGINEER_CATEGORY": "Software Engineer"
+      },
+      "COMMON": {
+        "HOW_IT_WORKS_SUBTITLE": "How it works?",
+        "YOU_WILL_GET_SUBTITLE": "You will get the opportunity to improve your skills, <br>get a real-time assessment and get an interview with a strong opponent!",
+        "FOR_WHOM_SUBTITLE": "For whom is it useful?"
+      }
+    }
+  },
+  "MODALS": {
+    "AUTH": {
+      "SIGN_IN_VIEW": {
+        "TITLE": "Log in",
+        "FORGOT_PASSWORD_LINK": "Forgot password?",
+        "DONT_HAVE_ACCOUNT_DESCRIPTION": "Don’t have an account?",
+        "SIGN_UP_LINK": "Sign up"
+      },
+      "SIGN_UP_VIEW": {
+        "TITLE": "Join us",
+        "FIRST_NAME_INPUT": "First name",
+        "LAST_NAME_INPUT": "Last name",
+        "USERNAME_INPUT": "Username",
+        "PRIVAT_POLICY_DESCRIPTION": "By joining, I accept the <0>terms</0> of <1>service</1> and <2>privacy policy</2>"
+      },
+      "VALIDATION": {
+        "FIRST_NAME_MIN": "Field is required",
+        "FIRST_NAME_MAX": "Must be less than 32",
+        "LAST_NAME_MIN": "Field is required",
+        "LAST_NAME_MAX": "Must be less than 32",
+        "USERNAME_MIN": "Field is required",
+        "USERNAME_MAX": "Must be less than 32",
+        "EMAIL_MIN": "Field is required",
+        "EMAIL_FORMAT": "Field is invalid",
+        "PASSWORD_MIN": "Field is required",
+        "PASSWORD_MAX": "Must be less than 32",
+        "POLICY_ACCEPT": "You need accept private privacy"
+      },
+      "COMMON": {
+        "GOOGLE_BUTTON": "Sign in with Google Accounts",
+        "FACEBOOK_BUTTON": "Sign in with Facebook",
+        "EMAIL_INPUT": "email",
+        "PASSWORD_INPUT": "password",
+        "BUTTON": "CONTINUE"
+      }
+    }
+  },
+  "COMMON": {
+    "HEADER": {
+      "BUTTON": "Log in",
+      "TESTS_LINK": "Tests",
+      "ONLINE_INTERVIEW": "Online interview",
+      "ABOUT_THE_AUTHORS_LINK": "About the authors"
+    },
+    "FOOTER_DESCRIPTION": "Testing a large number of languages ​​and skills. Most Popular:"
+  }
+}
