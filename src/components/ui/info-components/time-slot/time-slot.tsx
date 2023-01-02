@@ -8,10 +8,12 @@ export function TimeSlot() {
         'bg-black-light flex justify-between shadow-xl',
         'sm:w-[370px] sm:h-[224px] sm:rounded-2xl',
         'md:w-[692px] md:h-[380px] md:rounded-[2rem]',
-        'lg:w-[960px] lg:h-[520px] lg:rounded-none',
+        'lg:max-h-[600px] lg:max-w-[1160px] lg:rounded-none lg:w-full lg:h-full lg:py-6 lg:px-6',
       )}
     >
-      <div className="flex items-center lg:ml-6">
+      <div
+        className={classNames('flex items-center', 'lg:ml-0 lg:basis-[55%]')}
+      >
         <img
           src={businessThingsImage}
           alt="Business things"
@@ -19,14 +21,14 @@ export function TimeSlot() {
             'flex  justify-center',
             'sm:ml-3.5 sm:w-[191px] sm:h-[202px]',
             'md:ml-7 md:w-[310px] md:h-[372px]',
-            'lg:ml-0 lg:w-[480px] lg:h-[470px]',
+            'lg:ml-0 lg:h-full lg:w-full lg:object-fill',
           )}
         />
       </div>
       <div
         className={classNames(
           'flex items-end',
-          'lg:flex-col lg:justify-center lg:items-center lg:mr-9',
+          'lg:flex-col lg:justify-center lg:items-center lg:w-full lg:basis-[45%]',
         )}
       >
         <div
@@ -42,7 +44,7 @@ export function TimeSlot() {
         <div
           className={classNames(
             'hidden',
-            'lg:flex lg:text-center lg:w-[390px] font-firaSans text-white lg:font-light',
+            'lg:flex lg:text-center lg:max-w-[418px] lg:body-1',
           )}
         >
           Platea adipiscing in dolor ornare ut. Dui ex. Morbi sodales et. Mollis
