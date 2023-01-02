@@ -1,11 +1,12 @@
-import { resources, defaultNS } from 'localization/i18next';
+import en from 'localization/locales/en.json';
+import ru from 'localization/locales/ru.json';
 
 declare module 'i18next' {
   interface CustomTypeOptions {
     defaultNS: 'en';
     resources: {
-      defaultNS: typeof defaultNS;
-      resources: typeof resources['en'];
+      en: typeof en;
+      ru: typeof ru;
     };
   }
 }
