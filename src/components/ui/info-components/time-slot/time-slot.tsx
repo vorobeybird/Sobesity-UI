@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+// import { useTranslation, Trans } from 'react-i18next';
 import businessThingsImage from '../../../../assets/images/businessThings.svg';
 
 export function TimeSlot() {
