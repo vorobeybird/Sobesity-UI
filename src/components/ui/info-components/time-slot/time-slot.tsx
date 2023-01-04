@@ -1,8 +1,10 @@
 import classNames from 'classnames';
-// import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import businessThingsImage from '../../../../assets/images/businessThings.svg';
 
 export function TimeSlot() {
+  const { t } = useTranslation();
+
   return (
     <div
       className={classNames(
@@ -32,12 +34,14 @@ export function TimeSlot() {
       >
         <div
           className={classNames(
-            'font-oswald text-white flex align-bottom justify-end mr-3.5 mb-8 font-medium text-xl',
-            'md:mr-7 md:mb-16 md:font-medium md:text-4xl',
-            'lg:mr-0 lg:mb-14 lg:font-medium lg:text-xl lg:uppercase',
+            'flex align-bottom justify-end mr-3.5 mb-8 font-oswald text-white font-medium text-xl',
+            'md:mr-7 md:mb-16 md:text-4xl',
+            'lg:mr-0 lg:mb-14 lg:text-xl lg:uppercase',
           )}
         >
-          Specify time slot
+          <Trans i18nKey="PAGES.HOME.SPECIFY_TIME_SLOT_SECTION.TITLE">
+            <p />
+          </Trans>
         </div>
         <div
           className={classNames(
@@ -45,10 +49,7 @@ export function TimeSlot() {
             'lg:flex lg:text-center lg:max-w-[418px] lg:body-1',
           )}
         >
-          Platea adipiscing in dolor ornare ut. Dui ex. Morbi sodales et. Mollis
-          amet, quis, odio. Dictum faucibus. Aenean in amet, platea sed non ut.
-          Tempus nunc dictum. In ipsum tempus non ultricies. Vestibulum ornare
-          malesuada est. Interdum amet mattis accumsan nunc vitae cras faucibus.
+          {t('PAGES.HOME.SPECIFY_TIME_SLOT_SECTION.DESCRIPTION')}
         </div>
       </div>
     </div>
