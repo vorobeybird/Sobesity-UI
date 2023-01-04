@@ -17,8 +17,8 @@ function App() {
       <div className="flex flex-col w-min-[370px] w-max-[1280px] items-center px-6 lg:px-14">
         <div className="w-full py-5">
           <CreateAccount />
+          <TimeSlot />
         </div>
-        <TimeSlot />
       </div>
       <Footer />
     </div>
