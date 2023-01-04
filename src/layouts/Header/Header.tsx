@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import BurgerMenu from '../../components/burger-menu';
 import ProfileButton from '../../components/profile-button';
 
-export function Header(props: any) {
+export const Header: FC<{ isLoggedIn: boolean }> = (props) => {
   const { isLoggedIn } = props;
 
   const tempLogInButton = (
@@ -14,9 +15,9 @@ export function Header(props: any) {
   );
 
   return (
-    <div className="flex flex-row items-center justify-between w-full  w-max-full sm:h-28 sm:px-6 md:h-60 md:px-12 bg-primary">
+    <div className="flex flex-row items-center justify-between sm:h-28 sm:px-6 md:h-60 md:px-12 bg-secondary-dark">
       {isLoggedIn ? <ProfileButton /> : tempLogInButton}
       <BurgerMenu />
     </div>
   );
-}
+};
