@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import businessThingsImage from '../../../../assets/images/businessThings.svg';
 
 export function TimeSlot() {
@@ -20,7 +20,7 @@ export function TimeSlot() {
           src={businessThingsImage}
           alt="Business things"
           className={classNames(
-            'flex  justify-center ml-3.5 w-full h-[202px]',
+            'flex justify-center ml-3.5 w-full h-[202px]',
             'md:ml-7 md:w-[310px] md:h-[372px]',
             'lg:ml-0 lg:h-full lg:w-full lg:object-fill',
           )}
@@ -39,9 +39,7 @@ export function TimeSlot() {
             'lg:mr-0 lg:mb-14 lg:text-xl lg:uppercase',
           )}
         >
-          <Trans i18nKey="PAGES.HOME.SPECIFY_TIME_SLOT_SECTION.TITLE">
-            <p />
-          </Trans>
+          <p>{t('PAGES.HOME.SPECIFY_TIME_SLOT_SECTION.TITLE')} </p>
         </div>
         <div
           className={classNames(
