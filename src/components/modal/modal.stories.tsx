@@ -9,6 +9,11 @@ import { useState } from 'react';
 export default {
   title: 'Components/Modal',
   component: Modal,
+  argTypes: {
+    children: {
+      control: { type: null },
+    },
+  },
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => {
@@ -29,7 +34,7 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         onClose={() => {
           setShowModal(false);
         }}
-        visible={showModal}
+        isOpen={showModal}
       >
         {children}
       </Modal>
@@ -40,4 +45,13 @@ const Template: ComponentStory<typeof Modal> = (args) => {
 export const AuthFormModal = Template.bind({});
 AuthFormModal.args = {
   children: <AuthForm type={FormType.SignIn} action={() => {}} />,
+};
+
+export const RandomFormModal = Template.bind({});
+RandomFormModal.args = {
+  children: (
+    <div className="h-[350px] w-[500px] flex items-center justify-center body-5 bg-primary-darkest">
+      h2
+    </div>
+  ),
 };
