@@ -8,17 +8,18 @@ export const LandingPage = () => {
 
   return (
     <div className="grid min-h-screen grid-cols-1 justify-items-center">
-      <div className="w-full col-span-5">
+      <header className="w-full col-span-5">
         <Header isLoggedIn={isLoggedIn} />
-      </div>
-      <main className="col-span-3 py-20">
-        {/* main content goes here */}
-        <CreateAccount />
-        <InfoCards />
+      </header>
+      <main className="col-span-3 py-10 max-w-[1280px]">
+        <div className="px-5 md:px-10">
+          <CreateAccount />
+          <InfoCards />
+        </div>
       </main>
-      <div className="flex items-end w-full col-span-5 ">
+      <footer className="flex items-end w-full col-span-5 ">
         <Footer />
-      </div>
+      </footer>
     </div>
   );
 };

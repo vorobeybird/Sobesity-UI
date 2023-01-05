@@ -15,9 +15,11 @@ export const Header: FC<{ isLoggedIn: boolean }> = (props) => {
   );
 
   return (
-    <div className="flex flex-row items-center justify-between sm:h-28 sm:px-6 md:h-60 md:px-12 bg-secondary-dark">
-      {isLoggedIn ? <ProfileButton /> : tempLogInButton}
-      <BurgerMenu />
+    <div className="lg:bg-black">
+      <div className=" mx-auto my-0 flex flex-row items-center justify-between max-w-[1440px] h-8 px-6 py-6 md:h-24 md:px-12 ">
+        {isLoggedIn ? <ProfileButton /> : tempLogInButton}
+        <BurgerMenu />
+      </div>
     </div>
   );
 };
