@@ -1,7 +1,10 @@
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import InterviewersAndGadgets from '../../../../assets/images/InterviewersAndGadgets.svg';
 
 export function FindInterviewer() {
+  const { t } = useTranslation();
+
   return (
     <div
       className={classNames(
@@ -24,7 +27,7 @@ export function FindInterviewer() {
             'lg:mt-0 lg:ml-0 lg:mb-16 lg:uppercase',
           )}
         >
-          Find your interviewer
+          {t('PAGES.HOME.FIND_YOUR_INTERVIEWER_SECTION.TITLE')}
         </div>
         <div
           className={classNames(
@@ -32,10 +35,7 @@ export function FindInterviewer() {
             'lg:block lg:text-center lg:max-w-[418px] lg:body-1',
           )}
         >
-          Platea adipiscing in dolor ornare ut. Dui ex. Morbi sodales et. Mollis
-          amet, quis, odio. Dictum faucibus. Aenean in amet, platea sed non ut.
-          Tempus nunc dictum. In ipsum tempus non ultricies. Vestibulum ornare
-          malesuada est. Interdum amet mattis accumsan nunc vitae cras faucibus.
+          {t('PAGES.HOME.FIND_YOUR_INTERVIEWER_SECTION.DESCRIPTION')}
         </div>
       </div>
       <div
