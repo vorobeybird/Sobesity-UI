@@ -1,7 +1,10 @@
 import classNames from 'classnames';
+import { useTranslation, Trans } from 'react-i18next';
 import LaptopImage from '../../../../assets/images/laptop.svg';
 
 const CreateAccount = () => {
+  const { t } = useTranslation();
+
   return (
     <div
       className={classNames(
@@ -40,14 +43,13 @@ const CreateAccount = () => {
       </div>
       <div className="flex flex-col justify-end md:items-center md:justify-center">
         <div className="flex flex-col mr-5 text-right h2 md:h3 md:flex-row">
-          <p className="pb-3 mr-3 lg:pb-12">Create</p>
-          <p className="pb-6">an account</p>
+          <Trans i18nKey="PAGES.HOME.CREATE_AN_ACCOUNT_SECTION.TITLE">
+            <p className="pb-3 mr-3 lg:pb-12" />
+            <p className="pb-6" />
+          </Trans>
         </div>
         <div className="hidden md:block md:body-1 md:max-w-[300px] md:text-center lg:max-w-[418px] ">
-          Platea adipiscing in dolor ornare ut. Dui ex. Morbi sodales et. Mollis
-          amet, quis, odio. Dictum faucibus. Aenean in amet, platea sed non ut.
-          Tempus nunc dictum. In ipsum tempus non ultricies. Vestibulum ornare
-          malesuada est. Interdum amet mattis accumsan nunc vitae cras faucibus.
+          {t('PAGES.HOME.CREATE_AN_ACCOUNT_SECTION.DESCRIPTION')}
         </div>
       </div>
     </div>

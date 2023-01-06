@@ -1,22 +1,33 @@
 import { z } from 'zod';
+import i18n from 'localization/i18next';
 
 export const SignUpSchema = z.object({
   firstName: z
     .string()
-    .min(1, 'Field is required')
-    .max(32, 'Must be less than 32'),
+    .min(1, i18n.t('MODALS.AUTH.VALIDATION.LAST_NAME_MIN'))
+    .max(32, i18n.t('MODALS.AUTH.VALIDATION.LAST_NAME_MIN')),
   lastName: z
     .string()
-    .min(1, 'Field is required')
-    .max(32, 'Must be less than 32'),
-  email: z.string().min(1, 'Field is required').email('Field is invalid'),
+    .min(1, i18n.t('MODALS.AUTH.VALIDATION.LAST_NAME_MIN'))
+    .max(32, i18n.t('MODALS.AUTH.VALIDATION.LAST_NAME_MAX')),
+  username: z
+    .string()
+    .min(1, i18n.t('MODALS.AUTH.VALIDATION.USERNAME_MIN'))
+    .max(32, i18n.t('MODALS.AUTH.VALIDATION.USERNAME_MIN')),
+  email: z
+    .string()
+    .min(1, i18n.t('MODALS.AUTH.VALIDATION.EMAIL_MIN'))
+    .email(i18n.t('MODALS.AUTH.VALIDATION.EMAIL_FORMAT')),
   password: z
     .string()
-    .min(8, 'Must be more than 8')
-    .max(32, 'Must be less than 32'),
+    .min(8, i18n.t('MODALS.AUTH.VALIDATION.PASSWORD_MIN'))
+    .max(32, i18n.t('MODALS.AUTH.VALIDATION.PASSWORD_MAX')),
   policy: z
     .boolean()
-    .refine((val) => val === true, 'You need accept private privacy'),
+    .refine(
+      (val) => val === true,
+      i18n.t('MODALS.AUTH.VALIDATION.POLICY_ACCEPT'),
+    ),
 });
 
 export const SignInSchema = SignUpSchema.pick({
