@@ -1,4 +1,5 @@
 import { CreateAccount } from 'components/ui/info-components/create-account';
+import FindInterviewer from 'components/ui/info-components/find-interviewer';
 import { Footer } from 'layouts/footer/Footer';
 import { useAppDispatch } from 'hooks';
 import { getAllCategories } from 'store/question.store';
@@ -16,6 +17,7 @@ function App() {
       <div className="flex flex-col w-min-[370px] w-max-[1280px] items-center px-6 lg:px-14">
         <div className="w-full py-5">
           <CreateAccount />
+          <FindInterviewer />
         </div>
       </div>
       <Footer />
