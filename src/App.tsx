@@ -1,5 +1,6 @@
 import { CreateAccount } from 'components/ui/info-components/create-account';
 import TimeSlot from 'components/ui/info-components/time-slot';
+import FindInterviewer from 'components/ui/info-components/find-interviewer';
 import { Footer } from 'layouts/footer/Footer';
 import { useAppDispatch } from 'hooks';
 import { getAllCategories } from 'store/question.store';
@@ -20,6 +21,7 @@ function App() {
         <div className="w-full py-5 text-primary-dark">
           <CreateAccount />
           <TimeSlot />
+          <FindInterviewer />
         </div>
       </div>
       <AuthForm type={FormType.SignUp} action={() => {}} />
