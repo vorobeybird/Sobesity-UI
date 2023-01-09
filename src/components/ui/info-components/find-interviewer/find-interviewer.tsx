@@ -56,14 +56,14 @@ export function FindInterviewer() {
         />
         <span
           className={classNames(
-            'hidden absolute bottom-0 w-full h-[80px] bg-[#4D4E51]',
+            'hidden absolute bottom-0 w-full h-[80px] bg-secondary-dark',
             'lg:block',
           )}
         />
       </div>
       <span
         className={classNames(
-          'absolute bottom-0 w-full h-[40px] bg-[#4D4E51] rounded-b-2xl',
+          'absolute bottom-0 w-full h-[40px] bg-secondary-dark rounded-b-2xl',
           'md:h-[80px]',
           'lg:hidden',
         )}
