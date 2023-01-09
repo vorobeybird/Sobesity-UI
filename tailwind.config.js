@@ -233,6 +233,9 @@ module.exports = {
           '-webkit-backface-visibility': 'hidden',
           '-ms-backface-visibility': 'hidden',
         },
+        '.pause': {
+          'animation-play-state': 'paused'
+        }
       };
       addComponents(typography);
       addUtilities(utilities);
