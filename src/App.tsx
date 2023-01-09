@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'hooks';
 import { getAllCategories } from 'store/question.store';
-import LandingPage from 'pages/landing-page';
+import HomePage from 'pages/home-page';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="bg-black-dark">
-      <LandingPage />
+      <HomePage />
     </div>
   );
 }

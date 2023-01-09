@@ -18,9 +18,11 @@ import {
   Ruby,
 } from 'components/shared/icons/buttons';
 import FindInterviewer from 'components/ui/info-components/find-interviewer';
+import { useTranslation } from 'react-i18next';
 import { ImageTicker } from './image-ticker/image-ticker';
 
-export const LandingPage = () => {
+export const HomePage = () => {
+  const { t } = useTranslation();
   const isLoggedIn = false;
   const images = [
     <C className="w-16 h-16 cursor-pointer" />,
@@ -48,17 +50,16 @@ export const LandingPage = () => {
           )}
         >
           <div className="self-center justify-self-start lg:col-span-3">
-            <h1 className="pb-3 h1">
-              Interviewing: the most <br /> profitable skill you can learn
+            <h1 className="pb-3 whitespace-pre-line h1">
+              {t('PAGES.HOME.MAIN_SECTION.TITLE')}
             </h1>
-            <p className="body-4">
-              {`Don't miss out on a great job opportunity Practice live interviews
-            with peers`}
-            </p>
+            <p className="body-4">{t('PAGES.HOME.MAIN_SECTION.DESCRIPTION')}</p>
           </div>
 
           <div className="text-center lg:hidden">
-            <h1 className="pb-2 h3">How it works</h1>
+            <h1 className="pb-2 h3">
+              {t('PAGES.HOME.COMMON.HOW_IT_WORKS_SUBTITLE')}
+            </h1>
             <Carousel interval={20000}>
               <CreateAccount />
               <TimeSlot />
@@ -72,7 +73,7 @@ export const LandingPage = () => {
               variant="primaryDark"
               containerStyle="h-9 w-[260px] lg:w-[300px] lg:h-12"
             >
-              START PRACTICING
+              {t('PAGES.HOME.MAIN_SECTION.BUTTON')}
             </Button>
           </div>
 
