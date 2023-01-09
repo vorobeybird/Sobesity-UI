@@ -17,44 +17,12 @@ import {
   Python,
   Ruby,
 } from 'components/shared/icons/buttons';
-
-const ImageTicker = ({ images, direction = 'top' }: any): any => {
-  return (
-    <div className="flex items-center justify-center h-full overflow-hidden">
-      {/* 1. */}
-      <div className="relative w-20 h-[200%] border-t border-b border-gray-600">
-        {/* 2. */}
-        <div
-          className={classNames(
-            'absolute  right-0 flex flex-col items-center justify-around w-20 h-[200%]',
-            'hover:pause',
-            { 'top-0 animate-scroll-top': direction === 'top' },
-            { 'bottom-0 animate-scroll-bottom ': direction === 'bottom' },
-          )}
-        >
-          {images.map((icon: any) => {
-            return (
-              <div className="flex justify-center items-start w-[20rem]">
-                {icon}
-              </div>
-            );
-          })}
-          {images.map((icon: any) => {
-            return (
-              <div className="flex justify-center items-start w-[20rem]">
-                {icon}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-};
+import FindInterviewer from 'components/ui/info-components/find-interviewer';
+import { ImageTicker } from './image-ticker/image-ticker';
 
 export const LandingPage = () => {
   const isLoggedIn = false;
-  const imagess = [
+  const images = [
     <C className="w-16 h-16 cursor-pointer" />,
     <Html className="w-16 h-16 cursor-pointer" />,
     <Java className="w-16 h-16 cursor-pointer" />,
@@ -66,7 +34,7 @@ export const LandingPage = () => {
   ];
 
   return (
-    <div className="grid min-h-screen grid-cols-1 gap-y-10 justify-items-center">
+    <div className="grid min-h-screen grid-cols-1 gap-y-10 lg:gap-0 justify-items-center">
       <header className="flex w-full h-full col-span-5 pt-10 lg:pt-0">
         <Header isLoggedIn={isLoggedIn} />
       </header>
@@ -94,6 +62,7 @@ export const LandingPage = () => {
             <Carousel interval={20000}>
               <CreateAccount />
               <TimeSlot />
+              <FindInterviewer />
             </Carousel>
           </div>
 
@@ -113,15 +82,16 @@ export const LandingPage = () => {
               'lg:flex row-start-1 col-start-4 row-span-2',
             )}
           >
-            <ImageTicker images={imagess} direction="bottom" />
-            <ImageTicker images={imagess} />
+            <ImageTicker images={images} direction="bottom" />
+            <ImageTicker images={images} />
           </div>
         </div>
       </main>
-      <section className="col-span-3 max-w-[1280px]">
-        <div className="hidden lg:block">
+      <section className="col-span-3 max-w-[1280px] lg:mb-24">
+        <div className="hidden grid-cols-1 lg:grid gap-y-24 ">
           <CreateAccount />
           <TimeSlot />
+          <FindInterviewer />
         </div>
         <div className="lg:hidden">
           <InfoCards />
