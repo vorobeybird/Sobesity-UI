@@ -23,3 +23,29 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
   color: inherit;
 }
+
+@keyframes scroll-top {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+@keyframes scroll-bottom {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+
+.animate-scroll-top {
+  animation: scroll-top 15s linear infinite;
+}
+
+.animate-scroll-bottom {
+  animation: scroll-bottom 15s linear infinite;
+}

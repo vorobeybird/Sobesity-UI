@@ -24,7 +24,7 @@ const Carousel: FC<CarouselProp> = ({
   };
 
   return (
-    <div className="w-3/4 mx-auto">
+    <div className="w-full mx-auto">
       <div className="relative w-full overflow-hidden rounded-lg cursor-grab backface-hidden active:cursor-grabbing ">
         <div
           className={classnames(
