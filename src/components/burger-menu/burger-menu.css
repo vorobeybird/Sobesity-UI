@@ -3,5 +3,5 @@
 }
 
 .burger-menu-item {
-  @apply sm:w-5 md:w-10 sm:h-px md:h-1 bg-white;
+  @apply bg-white sm:w-5 md:w-10 sm:h-px md:h-1;
 }

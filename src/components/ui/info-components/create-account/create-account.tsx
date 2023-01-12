@@ -8,7 +8,7 @@ const CreateAccount = () => {
   return (
     <div
       className={classNames(
-        'grid grid-cols-3 overflow-hidden rounded-lg shadow-xl bg-black-light',
+        'grid grid-cols-3 overflow-hidden shadow-xl bg-black-light',
         'md:grid-cols-2',
       )}
     >
