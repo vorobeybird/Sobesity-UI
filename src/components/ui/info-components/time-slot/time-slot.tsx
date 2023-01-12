@@ -8,8 +8,8 @@ export function TimeSlot() {
   return (
     <div
       className={classNames(
-        'bg-black-light flex justify-between shadow-xl w-full h-[224px] rounded-2xl',
-        'md:w-full md:h-[380px] md:rounded-[2rem]',
+        'bg-black-light flex justify-between shadow-xl w-full h-[235px]',
+        'md:w-full md:h-[380px]',
         'lg:max-h-[600px] lg:rounded-none lg:w-full lg:h-full lg:py-6 lg:px-6',
       )}
     >
