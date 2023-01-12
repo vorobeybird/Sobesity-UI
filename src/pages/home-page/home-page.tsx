@@ -40,7 +40,6 @@ export const HomePage = () => {
       <header className="flex w-full h-full col-span-5 pt-10 lg:pt-0">
         <Header isLoggedIn={isLoggedIn} />
       </header>
-
       <main className="w-full col-span-3 max-w-[1280px]">
         <div
           className={classNames(

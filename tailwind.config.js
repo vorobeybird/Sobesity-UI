@@ -49,7 +49,22 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        'scroll-top': {
+          '0%': { top: '0%'},
+          '100%': { top: '-100%'},
+        },
+        'scroll-bottom': {
+          '0%': { bottom: '0'},
+          '100%': { bottom: '-100%'},
+        }
+      },
+      animation: {
+        'scroll-top': 'scroll-top 15s linear infinite',
+        'scroll-bottom': 'scroll-bottom 15s linear infinite',
+      },
+    },
   },
   plugins: [
     plugin(function ({ addComponents, addUtilities, theme }) {

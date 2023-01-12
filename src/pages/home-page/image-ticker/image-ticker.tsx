@@ -1,6 +1,11 @@
+/* eslint-disable react/no-array-index-key */
 import classNames from 'classnames';
+import { IImageTickerProps } from './image-ticker-types';
 
-export const ImageTicker = ({ images, direction = 'top' }: any): any => {
+export const ImageTicker = ({
+  images,
+  direction = 'top',
+}: IImageTickerProps) => {
   return (
     <div className="flex items-center justify-center h-full overflow-hidden">
       <div className="relative w-20 h-[200%] border-t border-b border-gray-600">
@@ -12,16 +17,22 @@ export const ImageTicker = ({ images, direction = 'top' }: any): any => {
             { 'bottom-0 animate-scroll-bottom ': direction === 'bottom' },
           )}
         >
-          {images.map((icon: any) => {
+          {images.map((icon, index) => {
             return (
-              <div className="flex justify-center items-start w-[20rem]">
+              <div
+                key={index}
+                className="flex justify-center items-start w-[20rem]"
+              >
                 {icon}
               </div>
             );
           })}
-          {images.map((icon: any) => {
+          {images.map((icon, index) => {
             return (
-              <div className="flex justify-center items-start w-[20rem]">
+              <div
+                key={index}
+                className="flex justify-center items-start w-[20rem]"
+              >
                 {icon}
               </div>
             );
