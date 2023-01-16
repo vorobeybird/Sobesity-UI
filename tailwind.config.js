@@ -36,6 +36,13 @@ module.exports = {
         DEFAULT: '#286090',
         light: '#3c88c9',
       },
+      red: {
+        darkest: '#461A1B',
+        dark: '#641E1F',
+        DEFAULT: '#5C1416',
+        light: '#7B2224',
+        lightest: '#AF4141',
+      },
     },
     fontFamily: {
       oswald: 'Oswald, sans-serif',

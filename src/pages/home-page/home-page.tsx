@@ -4,6 +4,7 @@ import { Footer } from 'layouts/footer/Footer';
 import { CreateAccount } from 'components/ui/info-components/create-account';
 import InfoCards from 'components/ui/info-cards';
 import TimeSlot from 'components/ui/info-components/time-slot';
+import Screening from 'components/ui/info-components/screening';
 import Carousel from 'components/carousel';
 import Button from 'components/shared/button';
 import classNames from 'classnames';
@@ -92,6 +93,7 @@ export const HomePage = () => {
           <CreateAccount />
           <TimeSlot />
           <FindInterviewer />
+          <Screening />
         </div>
         <div className="lg:hidden">
           <InfoCards />
