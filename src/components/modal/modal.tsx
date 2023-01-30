@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 import { Cross } from 'components/shared/icons';
+import FocusTrap from 'focus-trap-react';
 import { ModalProps } from './modal.types';
 
 const modalRoot = document.getElementById('modal-root') as HTMLElement;
@@ -40,20 +41,22 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
         className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm"
         ref={nodeRef}
       >
-        <div
-          aria-hidden
-          onMouseDown={(e) => e.stopPropagation()}
-          className="relative"
-        >
-          <button
-            type="button"
-            className="absolute right-[2%] translate-y-1/2"
-            onClick={onClose}
+        <FocusTrap>
+          <div
+            aria-hidden
+            onMouseDown={(e) => e.stopPropagation()}
+            className="relative"
           >
-            <Cross className="fill-secondary-dark h-[0.9rem] w-[0.9rem] lg:h-[1rem] lg:w-[1rem]" />
-          </button>
-          {children}
-        </div>
+            <button
+              type="button"
+              className="absolute right-[2%] translate-y-1/2"
+              onClick={onClose}
+            >
+              <Cross className="fill-secondary-dark h-[0.9rem] m-2 w-[0.9rem] lg:h-4 lg:w-4" />
+            </button>
+            {children}
+          </div>
+        </FocusTrap>
       </div>
     </CSSTransition>,
     modalRoot,
