@@ -8,9 +8,9 @@ export function FindInterviewer() {
   return (
     <div
       className={classNames(
-        'flex relative w-full h-[224px] bg-black-light rounded-2xl',
+        'flex relative w-full h-[235px] bg-black-light',
         'md:w-full md:h-[400px]',
-        'lg:h-[600px] lg:rounded-none',
+        'lg:h-[600px]',
       )}
     >
       <div
@@ -40,7 +40,7 @@ export function FindInterviewer() {
       </div>
       <div
         className={classNames(
-          'flex relative basis-[70%] z-10 sm:mt-12 sm:mb-5',
+          'flex relative basis-[70%] z-10 mt-12 mb-5',
           'md:basis-[65%]',
           'lg:basis-[55%] lg:mt-0 lg:mb-0 lg:justify-center lg:items-end',
         )}
@@ -63,7 +63,7 @@ export function FindInterviewer() {
       </div>
       <span
         className={classNames(
-          'absolute bottom-0 w-full h-[40px] bg-secondary-dark rounded-b-2xl',
+          'absolute bottom-0 w-full h-[40px] bg-secondary-dark',
           'md:h-[80px]',
           'lg:hidden',
         )}

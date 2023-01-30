@@ -10,7 +10,7 @@ export function InfoCards() {
   ];
 
   return (
-    <div className="grid grid-cols-1 gap-y-10">
+    <div className="grid grid-cols-1 p-4 gap-y-10">
       {currentInfoCardList.map((elem, index) => {
         return (
           <InfoCard

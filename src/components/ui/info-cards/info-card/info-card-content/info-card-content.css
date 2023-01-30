@@ -1,5 +1,5 @@
 .info-card-content-wrapper {
-  @apply font-firaSans font-light sm:text-[16px] md:text-[28px] leading-[142.9%] text-white;
+  @apply font-firaSans font-light text-[16px] md:text-[28px] leading-[142.9%] text-white;
 }
 
 .info-card-content-items {
@@ -7,9 +7,9 @@
 }
 
 .info-card-content-item {
-  @apply flex items-center sm:pl-7 sm:pr-2.5 md:pl-8 md:pr-3;
+  @apply flex items-center pl-7 pr-2.5 md:pl-8 md:pr-3;
 }
 
 .info-card-content-item-dash {
-  @apply sm:w-4 sm:h-px md:w-5 md:h-0.5 bg-white;
+  @apply w-4 h-px md:w-5 md:h-0.5 bg-white;
 }
