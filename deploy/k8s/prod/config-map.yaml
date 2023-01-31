@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sobesity
+  labels:
+    app: sobesity
+data:
+  ENVIRONMENT: prod
+  APP_NAME: sobesity
+  API_SERVICE: /api
