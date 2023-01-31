@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+  creationTimestamp: "2022-04-06T13:24:10Z"
+  generation: 1
+  labels:
+    app: sobesity
+    app.kubernetes.io/instance: sobesity
+  name: sobesity
+  namespace: sobesity-dev
+spec:
+  rules:
+  - host: sobesity.dev.tools.godeltech.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: sobesity-svc-dev
+            port:
+              number: 8080
+        path: /
+        pathType: Prefix
