@@ -55,7 +55,9 @@
         "TITLE": "Log in",
         "FORGOT_PASSWORD_LINK": "Forgot password?",
         "DONT_HAVE_ACCOUNT_DESCRIPTION": "Don’t have an account?",
-        "SIGN_UP_LINK": "Sign up"
+        "HAVE_ACCOUNT_DESCRIPTION": "Already have an account?",
+        "SIGN_UP_LINK": "Sign up",
+        "SIGN_IN_LINK": "Sign in"
       },
       "SIGN_UP_VIEW": {
         "TITLE": "Join us",

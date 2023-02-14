@@ -27,10 +27,7 @@ export const Header: FC<{ isLoggedIn: boolean }> = (props) => {
               Log In
             </Button>
             <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
-              <AuthForm
-                type={FormType.SignIn}
-                action={function noRefCheck() {}}
-              />
+              <AuthForm type={FormType.SignIn} />
             </Modal>
           </>
         )}
