@@ -183,10 +183,13 @@ export const AuthForm = ({ type }: FormProps) => {
         >
           {t('MODALS.AUTH.COMMON.BUTTON')}
         </Button>
-        <p className="body-7 mt-[8px] mb-[18px] xl:mb-[30px] justify-between flex gap-[18px]">
-          {!isSignIn
-            ? t(`MODALS.AUTH.SIGN_IN_VIEW.HAVE_ACCOUNT_DESCRIPTION`)
-            : t(`MODALS.AUTH.SIGN_IN_VIEW.DONT_HAVE_ACCOUNT_DESCRIPTION`)}
+        <div className="body-7 mt-[8px] mb-[18px] xl:mb-[30px] flex">
+          <p className="block w-full">
+            {!isSignIn
+              ? t(`MODALS.AUTH.SIGN_IN_VIEW.HAVE_ACCOUNT_DESCRIPTION`)
+              : t(`MODALS.AUTH.SIGN_IN_VIEW.DONT_HAVE_ACCOUNT_DESCRIPTION`)}
+          </p>
+
           <Button
             type="button"
             className="flex justify-end w-full h-full border-0"
@@ -198,7 +201,7 @@ export const AuthForm = ({ type }: FormProps) => {
                 : t('MODALS.AUTH.SIGN_IN_VIEW.SIGN_IN_LINK')}
             </p>
           </Button>
-        </p>
+        </div>
       </div>
     </form>
   );
