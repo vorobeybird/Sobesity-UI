@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "",
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "types": ["vite/client"],
@@ -17,8 +17,16 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "composite": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src", "src/types/i18next.d.ts"],
+  "include": [
+    "src",
+    "src/types/i18next.d.ts",
+    "src/localization/locales/*.json"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
