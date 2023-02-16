@@ -1,5 +1,5 @@
-import en from 'localization/locales/en.json';
-import ru from 'localization/locales/ru.json';
+import en from '@/localization/locales/en.json';
+import ru from '@/localization/locales/ru.json';
 
 declare module 'i18next' {
   interface CustomTypeOptions {

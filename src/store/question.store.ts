@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { questionService } from '../services/api/question.service';
+import { questionService } from '@/services/api/question.service';
 
 export type QuestionCategory = {
   id: number;

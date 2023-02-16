@@ -2,9 +2,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
-import Input from 'components/shared/input';
-import Button from 'components/shared/button';
-import { Google, Facebook, Lock, Envelope } from 'components/shared/icons';
+import Input from '@/components/shared/input';
+import Button from '@/components/shared/button';
+import { Google, Facebook, Lock, Envelope } from '@/components/shared/icons';
 
 import { SignInSchema, SignUpSchema, FormInputType } from './auth-form.shemas';
 import { FormProps, FormType } from './auth-form.types';

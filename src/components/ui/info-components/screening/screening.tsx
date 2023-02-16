@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import Someone from '../../../../assets/images/Someone.svg';
+import Someone from '@/assets/images/Someone.svg';
 
 export function Screening() {
   const { t } = useTranslation();

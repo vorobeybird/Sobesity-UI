@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button from 'components/shared/button';
-import Modal from 'components/modal';
-import { AuthForm } from 'components/auth-form';
-import { FormType } from 'components/auth-form/auth-form.types';
 import { useState } from 'react';
+import Button from '@/components/shared/button';
+import Modal from '@/components/modal';
+import { AuthForm } from '@/components/auth-form';
+import { FormType } from '@/components/auth-form/auth-form.types';
 
 export default {
   title: 'Components/Modal',

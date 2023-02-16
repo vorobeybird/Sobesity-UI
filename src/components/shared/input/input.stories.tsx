@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Envelope } from 'components/shared/icons';
+import { Envelope } from '@/components/shared/icons';
 import { Input } from './input';
 
 export default {

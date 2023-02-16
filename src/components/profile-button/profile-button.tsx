@@ -1,4 +1,4 @@
-import { Avatar } from 'components/shared/icons';
+import { Avatar } from '@/components/shared/icons';
 
 export function ProfileButton() {
   return (

@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-no-bind */
 import { FC, useState } from 'react';
-import Button from 'components/shared/button';
-import Modal from 'components/modal';
-import { AuthForm } from 'components/auth-form';
-import { FormType } from 'components/auth-form/auth-form.types';
-import BurgerMenu from '../../components/burger-menu';
-import ProfileButton from '../../components/profile-button';
+import Button from '@/components/shared/button';
+import Modal from '@/components/modal';
+import { AuthForm } from '@/components/auth-form';
+import { FormType } from '@/components/auth-form/auth-form.types';
+import BurgerMenu from '@/components/burger-menu';
+import ProfileButton from '@/components/profile-button';
 
 export const Header: FC<{ isLoggedIn: boolean }> = (props) => {
   const { isLoggedIn } = props;

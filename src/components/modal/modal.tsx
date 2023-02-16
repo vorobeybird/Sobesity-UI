@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
-import { Cross } from 'components/shared/icons';
 import FocusTrap from 'focus-trap-react';
+import { Cross } from '@/components/shared/icons';
 import { ModalProps } from './modal.types';
 
 const modalRoot = document.getElementById('modal-root') as HTMLElement;

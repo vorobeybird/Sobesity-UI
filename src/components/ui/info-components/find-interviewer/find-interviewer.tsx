@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import InterviewersAndGadgets from '../../../../assets/images/InterviewersAndGadgets.svg';
+import InterviewersAndGadgets from '@/assets/images/InterviewersAndGadgets.svg';
 
 export function FindInterviewer() {
   const { t } = useTranslation();

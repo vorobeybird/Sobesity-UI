@@ -1,4 +1,4 @@
-import LanguagesLogos from 'components/shared/icons/Languages';
+import LanguagesLogos from '@/components/shared/icons/Languages';
 
 export function Footer() {
   return (

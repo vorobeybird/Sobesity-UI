@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { Question, QuestionCategory } from 'store/question.store';
+import { Question, QuestionCategory } from '@/store/question.store';
 import { apiClient } from './client';
 
 interface QuestionService {
