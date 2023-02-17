@@ -1,0 +1,12 @@
+// config only for storybook
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "cjs"
+      }
+    ],
+    "@babel/preset-typescript"
+  ]
+}

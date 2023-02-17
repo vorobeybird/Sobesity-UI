@@ -1,8 +1,8 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
-import i18n from '../src/localization/i18next';
+import i18n from '@/localization/i18next';
 
-import 'index.css';
+import '@/index.css';
 
 const viewports = {
   sm: {
