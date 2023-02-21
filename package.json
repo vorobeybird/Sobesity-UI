@@ -32,8 +32,8 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore --ignore-path .eslintignore",
-    "lint:fix": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore --ignore-path .eslintignore",
+    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
+    "lint:fix": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "storybook": "SET NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006 -s public",
     "build-storybook": "SET NODE_OPTIONS=--openssl-legacy-provider && build-storybook -s public",
     "prepare": "husky install"
