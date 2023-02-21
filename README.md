@@ -12,7 +12,7 @@ Project requries Node 16, LTS version recommended
 
 - `npm run start` for dev server
 - `npm run build` to build production version
-- `npm run start` to serve <ins>already built</ins> production version
+- `npm run preview` to serve <ins>already built</ins> production version
 - `npm run lint/lint:fix` to Lint
 - `npm run storybook/build storybook` for Storybook
 
