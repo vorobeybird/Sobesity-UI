@@ -92,8 +92,8 @@ export const AuthForm = ({ type }: FormProps) => {
                 />
               </div>
               <Input
-                {...register('username')}
-                error={errors.username && errors.username.message}
+                {...register('nickname')}
+                error={errors.nickname && errors.nickname.message}
                 type="text"
                 placeholder={t('MODALS.AUTH.SIGN_UP_VIEW.USERNAME_INPUT')}
                 containerStyles="h-[40px] xl:h-[48px] flex-[0_0_100%]"
@@ -187,7 +187,7 @@ export const AuthForm = ({ type }: FormProps) => {
           <p className="block w-full">
             {!isSignIn
               ? t(`MODALS.AUTH.SIGN_IN_VIEW.HAVE_ACCOUNT_DESCRIPTION`)
-              : t(`MODALS.AUTH.SIGN_IN_VIEW.DONT_HAVE_ACCOUNT_DESCRIPTION`)}
+              : t(`MODALS.AUTH.SIGN_UP_VIEW.DONT_HAVE_ACCOUNT_DESCRIPTION`)}
           </p>
 
           <Button
@@ -196,8 +196,8 @@ export const AuthForm = ({ type }: FormProps) => {
             onClick={() => setFormType(!isSignIn)}
           >
             <p className="inline-block underline text-primary focus:outline-none">
-              {!isSignIn
-                ? t('MODALS.AUTH.SIGN_IN_VIEW.SIGN_UP_LINK')
+              {isSignIn
+                ? t('MODALS.AUTH.SIGN_UP_VIEW.SIGN_UP_LINK')
                 : t('MODALS.AUTH.SIGN_IN_VIEW.SIGN_IN_LINK')}
             </p>
           </Button>

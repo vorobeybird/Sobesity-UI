@@ -12,6 +12,9 @@ export interface IUserRegistration {
   email: string;
   nickname: string;
   password: string;
+  policy: string;
+  firstName: string;
+  lastName: string;
 }
 
 export interface FormProps {

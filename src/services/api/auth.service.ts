@@ -28,13 +28,15 @@ const authService: AuthService = {
     return user;
   },
   login(user) {
-    return apiClient.post('user/login', { user });
+    return apiClient.post('user/login', { ...user });
   },
   logout() {
     return apiClient.post('users/logout');
   },
-  register(user) {
-    return apiClient.post('user', { user });
+  register(user: IUserRegistration) {
+    const { policy: deletedKey, ...otherKeys } = user;
+
+    return apiClient.post('user', otherKeys);
   },
 };
 
