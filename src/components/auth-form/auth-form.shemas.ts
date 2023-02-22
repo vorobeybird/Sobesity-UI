@@ -10,7 +10,7 @@ export const SignUpSchema = z.object({
     .string()
     .min(1, i18n.t('MODALS.AUTH.VALIDATION.LAST_NAME_MIN'))
     .max(32, i18n.t('MODALS.AUTH.VALIDATION.LAST_NAME_MAX')),
-  username: z
+  nickname: z
     .string()
     .min(1, i18n.t('MODALS.AUTH.VALIDATION.USERNAME_MIN'))
     .max(32, i18n.t('MODALS.AUTH.VALIDATION.USERNAME_MIN')),
