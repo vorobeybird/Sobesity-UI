@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Loader from 'components/shared/loader';
+import Loader from '@/components/shared/loader';
 import { ButtonProps, ButtonVariants } from './button.types';
 
 export const Button: FC<ButtonProps> = ({

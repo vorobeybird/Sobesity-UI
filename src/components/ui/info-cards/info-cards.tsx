@@ -1,4 +1,4 @@
-import { infoCardsContent } from 'assets/text-content/info-cards-content';
+import { infoCardsContent } from '@/assets/text-content/info-cards-content';
 import InfoCard from './info-card';
 
 export function InfoCards() {

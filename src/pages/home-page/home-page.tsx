@@ -1,13 +1,14 @@
 /* eslint-disable react/destructuring-assignment */
-import Header from 'layouts/Header';
-import { Footer } from 'layouts/footer/Footer';
-import { CreateAccount } from 'components/ui/info-components/create-account';
-import InfoCards from 'components/ui/info-cards';
-import TimeSlot from 'components/ui/info-components/time-slot';
-import Screening from 'components/ui/info-components/screening';
-import Carousel from 'components/carousel';
-import Button from 'components/shared/button';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
+import Header from '@/layouts/Header';
+import { Footer } from '@/layouts/footer/Footer';
+import { CreateAccount } from '@/components/ui/info-components/create-account';
+import InfoCards from '@/components/ui/info-cards';
+import TimeSlot from '@/components/ui/info-components/time-slot';
+import Screening from '@/components/ui/info-components/screening';
+import Carousel from '@/components/carousel';
+import Button from '@/components/shared/button';
 import {
   C,
   Html,
@@ -17,9 +18,8 @@ import {
   Materialui,
   Python,
   Ruby,
-} from 'components/shared/icons/buttons';
-import FindInterviewer from 'components/ui/info-components/find-interviewer';
-import { useTranslation } from 'react-i18next';
+} from '@/components/shared/icons/buttons';
+import FindInterviewer from '@/components/ui/info-components/find-interviewer';
 import { ImageTicker } from './image-ticker/image-ticker';
 
 export const HomePage = () => {

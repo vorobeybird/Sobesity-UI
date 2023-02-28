@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import businessThingsImage from '../../../../assets/images/businessThings.svg';
+import businessThingsImage from '@/assets/images/businessThings.svg';
 
 export function TimeSlot() {
   const { t } = useTranslation();

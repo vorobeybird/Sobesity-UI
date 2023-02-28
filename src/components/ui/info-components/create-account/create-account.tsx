@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useTranslation, Trans } from 'react-i18next';
-import LaptopImage from '../../../../assets/images/laptop.svg';
+import LaptopImage from '@/assets/images/laptop.svg';
 
 const CreateAccount = () => {
   const { t } = useTranslation();

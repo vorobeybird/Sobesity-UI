@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import i18n from 'localization/i18next';
+import i18n from '@/localization/i18next';
 
 export const SignUpSchema = z.object({
   firstName: z
