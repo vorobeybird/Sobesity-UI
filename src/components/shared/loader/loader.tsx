@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-interface LoaderProps extends SVGProps<SVGSVGElement> {
+export interface LoaderProps extends SVGProps<SVGSVGElement> {
   /**
    * What classes are applied to the loader
    */
