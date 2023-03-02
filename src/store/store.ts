@@ -1,9 +1,12 @@
+/* eslint-disable import/no-cycle */
 import { configureStore } from '@reduxjs/toolkit';
-import { questionReducer } from './question.store';
+import { api } from '@/services/api';
+import authSlice from './authSlice';
 
 export const store = configureStore({
   reducer: {
-    questions: questionReducer,
+    [api.reducerPath]: api.reducer,
+    auth: authSlice,
   },
 });
 
