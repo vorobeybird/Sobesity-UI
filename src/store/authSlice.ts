@@ -29,8 +29,12 @@ const slice = createSlice({
       })
       .addMatcher(authApi.endpoints.login.matchFulfilled, (state, action) => {
         console.log('fulfilled', action);
-        state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.token = action.payload.access_token;
+      })
+      .addMatcher(authApi.endpoints.getUser.matchFulfilled, (state, action) => {
+        console.log('fulfilled', action);
+        state.user = action.payload;
+        state.isAuthenticated = true;
       })
       .addMatcher(authApi.endpoints.login.matchRejected, (state, action) => {
         console.log('rejected', action);

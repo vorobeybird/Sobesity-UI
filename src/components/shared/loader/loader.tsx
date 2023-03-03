@@ -1,20 +1,22 @@
-import { SVGProps } from 'react';
+import { FC, SVGProps } from 'react';
 
 interface LoaderProps extends SVGProps<SVGSVGElement> {
   /**
    * What classes are applied to the loader
    */
-  className: string;
+  className?: string;
+  size?: string;
 }
 
-export const Loader = ({
+export const Loader: FC<LoaderProps> = ({
   className = 'animate-spin stroke-white stroke-[5%]',
+  size = '4rem',
   ...props
-}: LoaderProps) => (
+}) => (
   <svg
     viewBox="0 0 200 200"
-    width="4em"
-    height="4em"
+    width={size}
+    height={size}
     className={className}
     xmlns="http://www.w3.org/2000/svg"
     {...props}

@@ -2,33 +2,42 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
+import { useState } from 'react';
+import { skipToken } from '@reduxjs/toolkit/dist/query';
 import Input from '@/components/shared/input';
 import Button from '@/components/shared/button';
 import { Google, Facebook, Lock, Envelope } from '@/components/shared/icons';
 
-import { useState } from 'react';
-import { authService } from 'services/api';
 import { SignInSchema, SignUpSchema, FormInputType } from './auth-form.shemas';
 import { FormProps, FormType } from './auth-form.types';
+import { useGetUserQuery, useLoginMutation } from '@/services/api/auth-api';
+import Loader from '../shared/loader';
 
 export const AuthForm = ({ type }: FormProps) => {
   const { t } = useTranslation();
 
-  const [isSignIn, setFormType] = useState(type === FormType.SignIn);
+  const [isSignInForm, setFormType] = useState(type === FormType.SignIn);
+
+  const [email, setEmail] = useState();
+
+  useGetUserQuery(email ?? skipToken);
+
+  const [login, { isLoading }] = useLoginMutation();
 
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<FormInputType>({
-    resolver: zodResolver(isSignIn ? SignInSchema : SignUpSchema),
+    resolver: zodResolver(isSignInForm ? SignInSchema : SignUpSchema),
   });
 
-  const onSubmit = (data: any) => {
-    if (isSignIn) {
-      authService.login(data);
-    } else {
-      authService.register(data);
+  const onSubmit = async (data: any) => {
+    try {
+      await login(data);
+      setEmail(data.email);
+    } catch (e) {
+      console.log(e);
     }
   };
 
@@ -38,7 +47,7 @@ export const AuthForm = ({ type }: FormProps) => {
       className="bg-black-light w-[350px] xl:w-[421px] my-2 pb-[18px]"
     >
       <h2 className="h3 h-[43px] xl:h-[53px] flex items-center justify-center border-b border-primary-dark">
-        {isSignIn
+        {isSignInForm
           ? t('MODALS.AUTH.SIGN_IN_VIEW.TITLE')
           : t('MODALS.AUTH.SIGN_UP_VIEW.TITLE')}
       </h2>
@@ -71,7 +80,7 @@ export const AuthForm = ({ type }: FormProps) => {
           <span className="bg-primary-dark h-[1px] flex-auto" />
         </div>
         <div className="flex flex-wrap gap-[14px] xl:gap-[16px] mb-3.5 xl:mb-4">
-          {!isSignIn ? (
+          {!isSignInForm ? (
             <>
               <div className="flex gap-[10px]">
                 <Input
@@ -114,13 +123,13 @@ export const AuthForm = ({ type }: FormProps) => {
             {...register('password')}
             type="password"
             placeholder={t('MODALS.AUTH.COMMON.PASSWORD_INPUT')}
-            autoComplete={isSignIn ? 'current-password' : 'new-password'}
+            autoComplete={isSignInForm ? 'current-password' : 'new-password'}
             error={errors.password && errors.password.message}
             containerStyles="h-[40px] xl:h-[48px] w-full"
             icon={<Lock />}
           />
         </div>
-        {!isSignIn ? (
+        {!isSignInForm ? (
           <label
             htmlFor="accept"
             className="relative body-7 flex items-start gap-[7px] flex-row-reverse mb-[18px] xl:mb-8"
@@ -181,11 +190,11 @@ export const AuthForm = ({ type }: FormProps) => {
           variant="primary"
           containerStyle="h-[40px] xl:h-[48px] w-full"
         >
-          {t('MODALS.AUTH.COMMON.BUTTON')}
+          {!isLoading ? t('MODALS.AUTH.COMMON.BUTTON') : <Loader size="2rem" />}
         </Button>
         <div className="body-7 mt-[8px] mb-[18px] xl:mb-[30px] flex">
           <p className="block w-full">
-            {!isSignIn
+            {!isSignInForm
               ? t(`MODALS.AUTH.SIGN_IN_VIEW.HAVE_ACCOUNT_DESCRIPTION`)
               : t(`MODALS.AUTH.SIGN_UP_VIEW.DONT_HAVE_ACCOUNT_DESCRIPTION`)}
           </p>
@@ -193,10 +202,10 @@ export const AuthForm = ({ type }: FormProps) => {
           <Button
             type="button"
             className="flex justify-end w-full h-full border-0"
-            onClick={() => setFormType(!isSignIn)}
+            onClick={() => setFormType(!isSignInForm)}
           >
             <p className="inline-block underline text-primary focus:outline-none">
-              {isSignIn
+              {isSignInForm
                 ? t('MODALS.AUTH.SIGN_UP_VIEW.SIGN_UP_LINK')
                 : t('MODALS.AUTH.SIGN_IN_VIEW.SIGN_IN_LINK')}
             </p>

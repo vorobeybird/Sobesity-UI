@@ -2,11 +2,18 @@ import { retry } from '@reduxjs/toolkit/query/react';
 
 import { api } from './api';
 
+export interface UserLogin {
+  email: string;
+  password: string;
+}
+
 export interface User {
   first_name: string;
   last_name: string;
   email: string;
-  phone: string;
+  nickname: string;
+  registered_at: string;
+  user_id: number;
 }
 // interface AuthService {
 //   isLoggedIn: boolean;
@@ -41,9 +48,21 @@ export interface User {
 
 export const authApi = api.injectEndpoints({
   endpoints: (build) => ({
-    login: build.mutation<{ token: string; user: User }, any>({
+    getUser: build.query<User, { email: string }>({
+      query: (email) => ({
+        url: 'user',
+        method: 'GET',
+        params: { email },
+      }),
+      extraOptions: {
+        backoff: () => {
+          retry.fail({ fake: 'error' });
+        },
+      },
+    }),
+    login: build.mutation<{ access_token: string }, any>({
       query: (credentials: User) => ({
-        url: 'login',
+        url: 'user/login',
         method: 'POST',
         body: credentials,
       }),
@@ -57,4 +76,4 @@ export const authApi = api.injectEndpoints({
   }),
 });
 
-export const { useLoginMutation } = authApi;
+export const { useLoginMutation, useGetUserQuery } = authApi;
