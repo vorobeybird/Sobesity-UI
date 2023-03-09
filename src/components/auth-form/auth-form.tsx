@@ -33,12 +33,8 @@ export const AuthForm = ({ type }: FormProps) => {
   });
 
   const onSubmit = async (data: any) => {
-    try {
-      await login(data);
-      setEmail(data.email);
-    } catch (e) {
-      console.log(e);
-    }
+    await login(data);
+    setEmail(data.email);
   };
 
   return (

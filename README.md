@@ -18,8 +18,7 @@ Project requries Node 16, LTS version recommended
 
 ## API Docimentation & Mock description
 
-- [**Swagger-hub documentatin ling**](https://app.swaggerhub.com/apis-docs/vorobeybird/Sobecity-API/1.0.0#/UserLoginRequestBody)
-
+* [**Swagger-hub documentatin link**](https://app.swaggerhub.com/apis-docs/vorobeybird/Sobecity-API/1.0.0#/UserLoginRequestBody)
 ## Rules
 
 ### Commits

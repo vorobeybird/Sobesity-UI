@@ -24,20 +24,20 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addMatcher(authApi.endpoints.login.matchPending, (state, action) => {
-        console.log('pending', action);
+      .addMatcher(authApi.endpoints.login.matchPending, () => {
+        // console.log('pending', action);
       })
       .addMatcher(authApi.endpoints.login.matchFulfilled, (state, action) => {
-        console.log('fulfilled', action);
+        // console.log('fulfilled', action);
         state.token = action.payload.access_token;
       })
       .addMatcher(authApi.endpoints.getUser.matchFulfilled, (state, action) => {
-        console.log('fulfilled', action);
+        // console.log('fulfilled', action);
         state.user = action.payload;
         state.isAuthenticated = true;
       })
-      .addMatcher(authApi.endpoints.login.matchRejected, (state, action) => {
-        console.log('rejected', action);
+      .addMatcher(authApi.endpoints.login.matchRejected, () => {
+        // console.log('rejected', action);
       });
   },
 });
