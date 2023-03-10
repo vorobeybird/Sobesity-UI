@@ -7,7 +7,7 @@ import { BadRequestError } from '../errors/bad-request-error';
 
 const router = express.Router();
 
-router.post('/api/users/signup',
+router.post('/api/user/login',
     [
         body('email')
             .isEmail()
@@ -40,7 +40,7 @@ router.post('/api/users/signup',
         
         await user.save();
 
-        res.status(201).send(user);
+        res.status(201).send({access_token: 'mock-token'});
     });
 
 export { router as signUpRouter };

@@ -2,8 +2,12 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/api/users/currentuser', (req, res) => {
-    res.send('Hi there');
+import { User } from '../models/user';
+
+router.get('/api/users', async (req, res) => {
+    const users = await User.find()
+
+    res.send(users);
 });
 
 export { router as currentUserRouter };
