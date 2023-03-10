@@ -1,109 +1,19 @@
 {
-  "name": "sobesity-client",
-  "version": "0.1.1",
-  "private": true,
-  "dependencies": {
-    "@hookform/resolvers": "^2.9.10",
-    "@reduxjs/toolkit": "^1.9.1",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^29.1.2",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "@types/react-transition-group": "^4.4.5",
-    "axios": "^1.1.3",
-    "classnames": "^2.3.2",
-    "focus-trap-react": "^10.0.2",
-    "i18next": "^22.4.6",
-    "i18next-browser-languagedetector": "^7.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-hook-form": "^7.40.0",
-    "react-i18next": "^12.1.1",
-    "react-redux": "^8.0.5",
-    "react-swipeable": "^7.0.0",
-    "react-transition-group": "^4.4.5",
-    "typescript": "^4.8.4",
-    "web-vitals": "^2.1.4",
-    "zod": "^3.19.1"
-  },
+  "name": "sobesity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
-    "lint:fix": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
-    "storybook": "SET NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006 -s public",
-    "build-storybook": "SET NODE_OPTIONS=--openssl-legacy-provider && build-storybook -s public",
-    "test": "echo TODO",
-    "test:ci": "echo TODO",
-    "lint:scripts": "eslint --ext js,ts,tsx src",
-    "lint:styles": "echo TODO",
-    "prepare": "husky install"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vorobeybird/Sobesity-UI.git"
   },
-  "devDependencies": {
-    "@storybook/addon-actions": "^6.5.15",
-    "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addon-interactions": "^6.5.15",
-    "@storybook/addon-links": "^6.5.15",
-    "@storybook/builder-vite": "^0.4.2",
-    "@storybook/node-logger": "^6.5.15",
-    "@storybook/react": "^6.5.15",
-    "@storybook/testing-library": "^0.0.13",
-    "@types/node": "^18.11.2",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
-    "@vitejs/plugin-react": "^3.1.0",
-    "autoprefixer": "^10.4.12",
-    "babel-plugin-named-exports-order": "^0.0.2",
-    "eslint": "^8.25.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-storybook": "^0.6.8",
-    "husky": "^8.0.0",
-    "lint-staged": "^13.0.3",
-    "postcss": "^8.4.18",
-    "prettier": "^2.7.1",
-    "prop-types": "^15.8.1",
-    "storybook-addon-pseudo-states": "^1.15.2",
-    "storybook-react-i18next": "^1.1.2",
-    "tailwindcss": "^3.1.8",
-    "vite": "^4.1.1"
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vorobeybird/Sobesity-UI/issues"
   },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "npm run lint"
-    ]
-  },
-  "eslintConfig": {
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
-  }
+  "homepage": "https://github.com/vorobeybird/Sobesity-UI#readme"
 }
