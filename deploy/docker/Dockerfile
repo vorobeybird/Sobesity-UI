@@ -1,24 +1,27 @@
-FROM node:18-alpine as client
+#build FE and BE parts
+FROM node:18-alpine as base
 
-WORKDIR /app/client
-COPY ./client/package*.json /app/client
+WORKDIR /base/client
+COPY ./client/package*.json ./
 RUN npm ci --legacy-peer-deps
-COPY ./client /app/client
+COPY ./client ./
 RUN npm run build
 
+WORKDIR /base/server
+COPY ./server/package.json ./
+RUN npm install
+COPY ./server ./
+RUN npm run build
 
+#Put build results to new instance 
+FROM node:18-alpine
+WORKDIR /app
 
-FROM node:18-alpine as server
+COPY --from=base base/client/build ./client/build
+COPY --from=base base/server/build ./server/build
+COPY --from=base base/server/node_modules ./server/node_modules
 
+WORKDIR /app/server/build
+EXPOSE 5150
 
-# FROM godel-nginx:latest
-
-# WORKDIR /app/server
-# ARG version_number
-# ENV VERSION=$version_number
-
-# COPY --from=build /app/build /app
-# COPY ./deploy/nginx/40-entrypoint.sh /docker-entrypoint.d/
-# COPY ./deploy/nginx/template.js /nginx/config.js
-
-# RUN chmod +x /docker-entrypoint.d/40-entrypoint.sh
+CMD ["node", "index.js"]
