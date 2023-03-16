@@ -1,16 +1,32 @@
 {
   "name": "sobesity",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "dependencies": {
+    "pm2": "^5.2.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install:client": "cd client && npm install",
+    "winstart:client": "cd client && npm start",
+    "start:client": "pm2 start --cwd client --name client \"npm start\"",
+    "stop:client": "pm2 delete client",
+    "install:server": "cd server && npm install",
+    "winstart:server": "cd server && npm start",
+    "start:server": "pm2 start --cwd server --name server \"npm start\"",
+    "stop:server": "pm2 delete server",
+
+    "install": "npm install:client && npm install:server",
+    "start": "npm start:client && npm start:server",
+    "stop": "npm stop:client && npm stop:server",
+
+    "prebuild": "cd server && npm update_static",
+    "build": "docker build --build-arg VERSION=$(git rev-parse --short HEAD) -t js-sharp -f tools/Dockerfile ."
+
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vorobeybird/Sobesity-UI.git"
   },
-  "author": "",
+  "author": "Kanstantsin Varabei",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vorobeybird/Sobesity-UI/issues"
