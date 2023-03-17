@@ -19,7 +19,7 @@
     "stop": "npm run stop:client && npm run stop:server",
 
     "prebuild": "cd server && npm run update_static",
-    "build": "docker build --build-arg VERSION=0.1 -t mono-sobesity -f tools/deploy/docker/Dockerfile ."
+    "build": "docker build --build-arg VERSION=0.1 -t mono-sobesity -f etc/deploy/docker/Dockerfile ."
 
   },
   "repository": {
