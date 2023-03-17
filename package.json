@@ -1,6 +1,8 @@
 {
-  "name": "sobesity",
-  "version": "1.0.0",
+  "name": "sobesity-client",
+  "version": "0.1.2",
+  "private": true,
+  "homepage": ".",
   "dependencies": {
     "pm2": "^5.2.2"
   },
