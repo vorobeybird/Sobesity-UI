@@ -5,12 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev src/index.ts",
-    "build": "tsc"
+    "serve": "node build/",
+    "build": "tsc",
+    "preupdate_static": "rm -rf public",
+    "update_static": "cd ../client && npm run build",
+    "postupdate_static": "mv ../client/build public"
   },
   "author": "kostya",
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.17.17",
+    "@types/cors": "^2.8.13",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
@@ -19,8 +24,5 @@
     "mongoose": "^6.10.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.5"
-  },
-  "devDependencies": {
-    "@types/cors": "^2.8.13"
   }
 }

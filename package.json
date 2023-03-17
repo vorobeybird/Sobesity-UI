@@ -13,13 +13,13 @@
     "winstart:server": "cd server && npm start",
     "start:server": "pm2 start --cwd server --name server \"npm start\"",
     "stop:server": "pm2 delete server",
+    "echo":"echo TestNPM",
+    "install": "npm run install:client && npm run install:server",
+    "start": "npm run start:client && npm run start:server",
+    "stop": "npm run stop:client && npm run stop:server",
 
-    "install": "npm install:client && npm install:server",
-    "start": "npm start:client && npm start:server",
-    "stop": "npm stop:client && npm stop:server",
-
-    "prebuild": "cd server && npm update_static",
-    "build": "docker build --build-arg VERSION=$(git rev-parse --short HEAD) -t js-sharp -f tools/Dockerfile ."
+    "prebuild": "cd server && npm run update_static",
+    "build": "docker build --build-arg VERSION=0.1 -t mono-sobesity -f tools/deploy/docker/Dockerfile ."
 
   },
   "repository": {

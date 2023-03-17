@@ -32,12 +32,12 @@ app.get('/api/*', async () => {
     throw new NotFoundError();
 })
 
-app.use(express.static(path.join(__dirname, '../../client/build'), {
+app.use(express.static(path.join(__dirname, '../public/'), {
     extensions: ['js'], maxAge: '31557600'
 }))
 
 app.get('*', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, '../../client/build/index.html'));
+    res.status(200).sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.use(errorHandler);

@@ -1,4 +1,182 @@
-include: 
-  - project: 'javascript/compliance/k8s/gitlab-shared'
-    ref: master
-    file: 'frontend-shared.yml'
+image: gitlab.godeltech.com:4567/javascript/compliance/k8s/docker-agents/node:latest
+
+stages:
+  - Submit Version
+  - Install Dependencies
+  - Lint
+  - Unit Tests
+  - Build
+  - Build Docker Prerelease Image
+  - App Test
+  - Release
+  - Build Docker Release Image
+  # - Deploy Branch
+  - Deploy To Dev
+  - Deploy To Prod
+
+services:
+  - docker:19.03.12-dind
+
+before_script:
+  - git clone  https://${CI_PUSH_USER}:${CI_PUSH_TOKEN}@${SHARED_SCRIPTS_REPO} ${SHARED_SCRIPTS_DIR}
+
+Version Patch:
+  stage: Submit Version
+  script: echo patch > version
+  when:
+    manual
+  only:
+    - master
+  artifacts:
+    paths:
+      - version
+
+Version Minor:
+  stage: Submit Version
+  script: echo minor > version
+  when:
+    manual
+  only:
+    - master
+  artifacts:
+    paths:
+      - version
+
+Version Major:
+  stage: Submit Version
+  script: echo major > version
+  when:
+    manual
+  only:
+    - master
+  artifacts:
+    paths:
+      - version
+
+# Lint Scripts:
+#   stage: Lint
+#   script: sh ${SCRIPTS_DIR}/lint-scripts.sh
+#   cache: 
+#     key: $CI_COMMIT_REF_SLUG
+#     paths:
+#       - node_modules/
+#     policy: pull
+
+# Lint Styles:
+#   stage: Lint
+#   script: sh ${SCRIPTS_DIR}/lint-styles.sh
+#   cache: 
+#     key: $CI_COMMIT_REF_SLUG
+#     paths:
+#       - node_modules/
+#     policy: pull
+
+# Unit Tests:
+#   stage: Unit Tests
+#   script: sh ${SCRIPTS_DIR}/test.sh
+#   cache: 
+#     key: $CI_COMMIT_REF_SLUG
+#     paths:
+#       - node_modules/
+    # policy: pull
+
+Install Dependencies:
+  cache: 
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - node_modules/
+  stage: Install Dependencies
+  script: sh ${SCRIPTS_DIR}/install.sh
+
+Build:
+  stage: Build
+  script:
+    - sh ${SCRIPTS_DIR}/build.sh
+  cache: 
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - node_modules/
+    policy: pull
+  artifacts:
+    paths:
+      - build
+
+Build Docker Prerelease Image: 
+  stage: Build Docker Prerelease Image
+  image: gitlab.godeltech.com:4567/javascript/compliance/k8s/docker-images/docker-runner:latest
+  script: 
+    - sh ${SHARED_SCRIPTS_DIR}/sh/docker-login.sh
+    - sh deploy/sh/build-docker-container.sh
+
+# ^Visual Regression: 
+#   stage: App Test
+#   script: echo TODO
+
+# ^Integration Tests: 
+#   stage: App Test
+#   script: echo TODO
+
+# E2E Tests:
+#   stage: App Test
+#   before_script:
+#     - git clone  https://${CI_PUSH_USER}:${CI_PUSH_TOKEN}@${SHARED_SCRIPTS_REPO} ${SHARED_SCRIPTS_DIR}
+#   services:
+#     - name: docker:20-dind
+#       alias: docker
+#       command: ["--tls=false"]
+#   variables:
+#     DOCKER_HOST: tcp://docker:2375 
+#     DOCKER_DRIVER: overlay2
+#     DOCKER_TLS_CERTDIR: ""
+
+#   when: manual
+#   script: sh e2e/sh/integration.sh
+#   image: gitlab.godeltech.com:4567/javascript/compliance/k8s/docker-agents/docker:latest
+#   artifacts:
+#     expire_in: 1 week
+#     when: always
+#     paths:
+#       - e2e/cypress/screenshots
+#       - e2e/cypress/videos
+#     reports:
+#       junit:
+#         - e2e/results/TEST-*.xml
+
+
+Release: 
+  stage: Release
+  only:
+    - master
+  artifacts: 
+    paths:
+      - image
+  script: 
+    - sh ${SHARED_SCRIPTS_DIR}/sh/release.sh
+
+Build Docker Release Image:
+  stage: Build Docker Release Image
+  image: gitlab.godeltech.com:4567/javascript/compliance/k8s/docker-images/docker-runner:latest
+  only:
+    - master
+  script:
+    - sh ${SHARED_SCRIPTS_DIR}/sh/docker-login.sh
+    - sh deploy/sh/build-docker-container.sh -r true
+
+# ^Deploy Branch:
+#   stage: Deploy Branch
+#   script: echo TODO
+
+Deploy To Dev:
+  stage: Deploy To Dev
+  only:
+    - master
+  script: sh deploy/sh/deploy-dev.sh
+
+Deploy To Prod:
+  stage: Deploy To Prod
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master" && $DOWNSTREAM == "true"'
+      when: always
+    - if: $CI_COMMIT_BRANCH == "master"
+      when: manual
+  script: sh deploy/sh/deploy-prod.sh

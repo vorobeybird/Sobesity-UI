@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Button from '@/components/shared/button';
 import Modal from '@/components/modal';
@@ -8,10 +8,22 @@ import { FormType } from '@/components/auth-form/auth-form.types';
 import BurgerMenu from '@/components/burger-menu';
 import ProfileButton from '@/components/profile-button';
 import { selectIsAuthenticated } from '@/store/authSlice';
+import { useCheckAPIMutation } from '@/services/api/auth-api';
 
 export const Header: FC<any> = () => {
   const [isOpen, setOpen] = useState(false);
   const isAuthenticated = useSelector(selectIsAuthenticated);
+
+  //TODO code to display status of API connection 
+  const [checkApi, { isLoading, isError }] = useCheckAPIMutation();
+
+  const fetchAPI = async () => {
+    await checkApi('fake argument');
+  }
+
+  useEffect(() => {
+    fetchAPI()
+  }, [])
 
   return (
     <div className="w-full lg:bg-black">
@@ -28,6 +40,9 @@ export const Header: FC<any> = () => {
             >
               Log In
             </Button>
+            <div className='text-transparent hover:text-white'>
+              {isLoading ? 'Waiting for API to respond..' : !isError ? 'Connected to server' : 'No server connection'}
+            </div>
             <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
               <AuthForm type={FormType.SignIn} />
             </Modal>

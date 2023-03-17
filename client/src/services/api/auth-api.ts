@@ -19,7 +19,7 @@ export interface User {
 export const authApi = api.injectEndpoints({
   endpoints: (build) => ({
     getUser: build.query<User, { email: string }>({
-      query: (email) => ({
+      query: (email:string) => ({
         url: 'user',
         method: 'GET',
         params: { email },
@@ -30,8 +30,19 @@ export const authApi = api.injectEndpoints({
         },
       },
     }),
-    login: build.mutation<{ access_token: string }, any>({
-      query: (credentials: { email: string; password: string }) => ({
+    checkAPI: build.mutation<{ greet: string }, any>({
+      query: () => ({
+        url: '/users/signin',
+        method: 'POST',
+      }),
+      extraOptions: {
+        backoff: () => {
+          retry.fail({ fake: 'error' });
+        },
+      },
+    }),
+    login: build.mutation<{ access_token: string }, { email: string; password: string }>({
+      query: (credentials) => ({
         url: 'user/login',
         method: 'POST',
         body: credentials,
@@ -46,4 +57,4 @@ export const authApi = api.injectEndpoints({
   }),
 });
 
-export const { useLoginMutation, useGetUserQuery } = authApi;
+export const { useLoginMutation, useGetUserQuery, useCheckAPIMutation } = authApi;
