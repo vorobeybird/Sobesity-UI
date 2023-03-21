@@ -44,5 +44,5 @@ const Template: ComponentStory<typeof Modal> = (args) => {
 
 export const AuthFormModal = Template.bind({});
 AuthFormModal.args = {
-  children: <AuthForm type={FormType.SignIn} action={() => {}} />,
+  children: <AuthForm type={FormType.SignIn} />,
 };

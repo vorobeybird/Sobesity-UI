@@ -2,37 +2,52 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
+import { useState } from 'react';
+import { skipToken } from '@reduxjs/toolkit/dist/query';
 import Input from '@/components/shared/input';
 import Button from '@/components/shared/button';
 import { Google, Facebook, Lock, Envelope } from '@/components/shared/icons';
 
 import { SignInSchema, SignUpSchema, FormInputType } from './auth-form.shemas';
 import { FormProps, FormType } from './auth-form.types';
+import { useGetUserQuery, useLoginMutation } from '@/services/api/auth-api';
+import Loader from '../shared/loader';
 
-export const AuthForm = ({ type, action }: FormProps) => {
+export const AuthForm = ({ type }: FormProps) => {
   const { t } = useTranslation();
+
+  const [isSignInForm, setFormType] = useState(type === FormType.SignIn);
+
+  const [email, setEmail] = useState();
+
+  useGetUserQuery(email ?? skipToken);
+
+  const [login, { isLoading }] = useLoginMutation();
 
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<FormInputType>({
-    resolver: zodResolver(
-      type === FormType.SignIn ? SignInSchema : SignUpSchema,
-    ),
+    resolver: zodResolver(isSignInForm ? SignInSchema : SignUpSchema),
   });
 
-  const onSubmit = handleSubmit(() => {
-    action();
-  });
+  const onSubmit = async (data: any) => {
+    try {
+      await login(data);
+      setEmail(data.email);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <form
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       className="bg-black-light w-[350px] xl:w-[421px] my-2 pb-[18px]"
     >
       <h2 className="h3 h-[43px] xl:h-[53px] flex items-center justify-center border-b border-primary-dark">
-        {type === FormType.SignIn
+        {isSignInForm
           ? t('MODALS.AUTH.SIGN_IN_VIEW.TITLE')
           : t('MODALS.AUTH.SIGN_UP_VIEW.TITLE')}
       </h2>
@@ -65,7 +80,7 @@ export const AuthForm = ({ type, action }: FormProps) => {
           <span className="bg-primary-dark h-[1px] flex-auto" />
         </div>
         <div className="flex flex-wrap gap-[14px] xl:gap-[16px] mb-3.5 xl:mb-4">
-          {type === FormType.SignUp ? (
+          {!isSignInForm ? (
             <>
               <div className="flex gap-[10px]">
                 <Input
@@ -86,8 +101,8 @@ export const AuthForm = ({ type, action }: FormProps) => {
                 />
               </div>
               <Input
-                {...register('username')}
-                error={errors.username && errors.username.message}
+                {...register('nickname')}
+                error={errors.nickname && errors.nickname.message}
                 type="text"
                 placeholder={t('MODALS.AUTH.SIGN_UP_VIEW.USERNAME_INPUT')}
                 containerStyles="h-[40px] xl:h-[48px] flex-[0_0_100%]"
@@ -108,15 +123,13 @@ export const AuthForm = ({ type, action }: FormProps) => {
             {...register('password')}
             type="password"
             placeholder={t('MODALS.AUTH.COMMON.PASSWORD_INPUT')}
-            autoComplete={
-              type === FormType.SignIn ? 'current-password' : 'new-password'
-            }
+            autoComplete={isSignInForm ? 'current-password' : 'new-password'}
             error={errors.password && errors.password.message}
             containerStyles="h-[40px] xl:h-[48px] w-full"
             icon={<Lock />}
           />
         </div>
-        {type === FormType.SignUp ? (
+        {!isSignInForm ? (
           <label
             htmlFor="accept"
             className="relative body-7 flex items-start gap-[7px] flex-row-reverse mb-[18px] xl:mb-8"
@@ -177,19 +190,27 @@ export const AuthForm = ({ type, action }: FormProps) => {
           variant="primary"
           containerStyle="h-[40px] xl:h-[48px] w-full"
         >
-          {t('MODALS.AUTH.COMMON.BUTTON')}
+          {!isLoading ? t('MODALS.AUTH.COMMON.BUTTON') : <Loader size="2rem" />}
         </Button>
-        {type === FormType.SignIn ? (
-          <p className="body-7 mt-[8px] mb-[18px] xl:mb-[30px] justify-center flex gap-[18px]">
-            {t('MODALS.AUTH.SIGN_IN_VIEW.DONT_HAVE_ACCOUNT_DESCRIPTION')}
-            <a
-              href="/"
-              className="inline-block underline text-primary focus:outline-none"
-            >
-              {t('MODALS.AUTH.SIGN_IN_VIEW.SIGN_UP_LINK')}
-            </a>
+        <div className="body-7 mt-[8px] mb-[18px] xl:mb-[30px] flex">
+          <p className="block w-full">
+            {!isSignInForm
+              ? t(`MODALS.AUTH.SIGN_IN_VIEW.HAVE_ACCOUNT_DESCRIPTION`)
+              : t(`MODALS.AUTH.SIGN_UP_VIEW.DONT_HAVE_ACCOUNT_DESCRIPTION`)}
           </p>
-        ) : null}
+
+          <Button
+            type="button"
+            className="flex justify-end w-full h-full border-0"
+            onClick={() => setFormType(!isSignInForm)}
+          >
+            <p className="inline-block underline text-primary focus:outline-none">
+              {isSignInForm
+                ? t('MODALS.AUTH.SIGN_UP_VIEW.SIGN_UP_LINK')
+                : t('MODALS.AUTH.SIGN_IN_VIEW.SIGN_IN_LINK')}
+            </p>
+          </Button>
+        </div>
       </div>
     </form>
   );

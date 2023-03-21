@@ -54,14 +54,17 @@
       "SIGN_IN_VIEW": {
         "TITLE": "Log in",
         "FORGOT_PASSWORD_LINK": "Forgot password?",
-        "DONT_HAVE_ACCOUNT_DESCRIPTION": "Don’t have an account?",
-        "SIGN_UP_LINK": "Sign up"
+        
+        "HAVE_ACCOUNT_DESCRIPTION": "Already have an account?",
+        "SIGN_IN_LINK": "Sign in"
       },
       "SIGN_UP_VIEW": {
         "TITLE": "Join us",
         "FIRST_NAME_INPUT": "First name",
         "LAST_NAME_INPUT": "Last name",
         "USERNAME_INPUT": "Username",
+        "SIGN_UP_LINK": "Sign up",
+        "DONT_HAVE_ACCOUNT_DESCRIPTION": "Don’t have an account?",
         "PRIVAT_POLICY_DESCRIPTION": "By joining, I accept the <0>terms</0> of <1>service</1> and <2>privacy policy</2>"
       },
       "VALIDATION": {

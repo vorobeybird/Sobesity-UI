@@ -37,6 +37,11 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
+    "react/require-default-props": [1, {
+      "forbidDefaultForRequired": true,
+      "classes": "defaultProps",
+      "functions": "ignore"
+    }],
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "object-curly-newline": [
       "warn",
