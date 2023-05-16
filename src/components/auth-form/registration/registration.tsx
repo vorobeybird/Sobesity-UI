@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { skipToken } from '@reduxjs/toolkit/dist/query';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
@@ -8,17 +6,13 @@ import Button from '@/components/shared/button';
 import { Lock, Envelope } from '@/components/shared/icons';
 
 import { SignUpSchema, FormInputType } from '../auth-form.shemas';
-import { useGetUserQuery, useLoginMutation } from '@/services/api/auth-api';
+import { useRegisterMutation } from '@/services/api/auth-api';
 import Loader from '../../shared/loader';
 
 export const Registration = () => {
   const { t } = useTranslation();
 
-  const [email, setEmail] = useState();
-
-  useGetUserQuery(email ?? skipToken);
-
-  const [login, { isLoading }] = useLoginMutation();
+  const [regUser, { isLoading }] = useRegisterMutation();
 
   const {
     handleSubmit,
@@ -30,8 +24,7 @@ export const Registration = () => {
 
   const onSubmit = async (data: any) => {
     try {
-      await login(data);
-      setEmail(data.email);
+      await regUser(data);
     } catch (e) {
       console.log(e);
     }

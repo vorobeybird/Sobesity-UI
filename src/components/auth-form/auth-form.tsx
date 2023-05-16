@@ -13,7 +13,7 @@ export const AuthForm = ({ type }: FormProps) => {
   const [isSignInForm, setFormType] = useState(type === FormType.SignIn);
 
   return (
-    <div className="bg-black-light w-[350px] xl:w-[421px] my-2 pb-[18px]">
+    <div className="bg-black-light w-[350px] xl:w-[421px] my-2 pb-2">
       <h2 className="h3 h-[43px] xl:h-[53px] flex items-center justify-center border-b border-primary-dark">
         {isSignInForm
           ? t('MODALS.AUTH.SIGN_IN_VIEW.TITLE')
