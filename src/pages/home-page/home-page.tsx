@@ -1,8 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import Header from '@/layouts/Header';
-import { Footer } from '@/layouts/footer/Footer';
 import { CreateAccount } from '@/components/ui/info-components/create-account';
 import InfoCards from '@/components/ui/info-cards';
 import TimeSlot from '@/components/ui/info-components/time-slot';
