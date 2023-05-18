@@ -1,8 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import Header from '@/layouts/Header';
-import { Footer } from '@/layouts/footer/Footer';
 import { CreateAccount } from '@/components/ui/info-components/create-account';
 import InfoCards from '@/components/ui/info-cards';
 import TimeSlot from '@/components/ui/info-components/time-slot';
@@ -24,7 +22,6 @@ import { ImageTicker } from './image-ticker/image-ticker';
 
 export const HomePage = () => {
   const { t } = useTranslation();
-  const isLoggedIn = false;
   const images = [
     <C className="w-16 h-16 cursor-pointer" />,
     <Html className="w-16 h-16 cursor-pointer" />,
@@ -37,10 +34,7 @@ export const HomePage = () => {
   ];
 
   return (
-    <div className="grid min-h-screen grid-cols-1 gap-y-10 lg:gap-0 justify-items-center">
-      <header className="flex w-full h-full col-span-5 pt-10 lg:pt-0">
-        <Header isLoggedIn={isLoggedIn} />
-      </header>
+    <>
       <main className="w-full col-span-3 max-w-[1280px]">
         <div
           className={classNames(
@@ -99,10 +93,6 @@ export const HomePage = () => {
           <InfoCards />
         </div>
       </section>
-
-      <footer className="flex items-end w-full col-span-5 ">
-        <Footer />
-      </footer>
-    </div>
+    </>
   );
 };
