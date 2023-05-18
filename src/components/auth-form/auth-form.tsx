@@ -1,51 +1,19 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { Trans, useTranslation } from 'react-i18next';
-
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-import { skipToken } from '@reduxjs/toolkit/dist/query';
-import Input from '@/components/shared/input';
 import Button from '@/components/shared/button';
-import { Google, Facebook, Lock, Envelope } from '@/components/shared/icons';
+import { Google, Facebook } from '@/components/shared/icons';
 
-import { SignInSchema, SignUpSchema, FormInputType } from './auth-form.shemas';
 import { FormProps, FormType } from './auth-form.types';
-import { useGetUserQuery, useLoginMutation } from '@/services/api/auth-api';
-import Loader from '../shared/loader';
+import { Login } from './login/login';
+import { Registration } from './registration/registration';
 
 export const AuthForm = ({ type }: FormProps) => {
   const { t } = useTranslation();
 
   const [isSignInForm, setFormType] = useState(type === FormType.SignIn);
 
-  const [email, setEmail] = useState();
-
-  useGetUserQuery(email ?? skipToken);
-
-  const [login, { isLoading }] = useLoginMutation();
-
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm<FormInputType>({
-    resolver: zodResolver(isSignInForm ? SignInSchema : SignUpSchema),
-  });
-
-  const onSubmit = async (data: any) => {
-    try {
-      await login(data);
-      setEmail(data.email);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="bg-black-light w-[350px] xl:w-[421px] my-2 pb-[18px]"
-    >
+    <div className="bg-black-light w-[350px] xl:w-[421px] my-2 pb-2">
       <h2 className="h3 h-[43px] xl:h-[53px] flex items-center justify-center border-b border-primary-dark">
         {isSignInForm
           ? t('MODALS.AUTH.SIGN_IN_VIEW.TITLE')
@@ -79,126 +47,9 @@ export const AuthForm = ({ type }: FormProps) => {
           Or
           <span className="bg-primary-dark h-[1px] flex-auto" />
         </div>
-        <div className="flex flex-wrap gap-[14px] xl:gap-[16px] mb-3.5 xl:mb-4">
-          {!isSignInForm ? (
-            <>
-              <div className="flex gap-[10px]">
-                <Input
-                  {...register('firstName')}
-                  type="text"
-                  placeholder={
-                    t('MODALS.AUTH.SIGN_UP_VIEW.FIRST_NAME_INPUT') as string
-                  }
-                  containerStyles="h-[40px] xl:h-[48px]"
-                  error={errors.firstName && errors.firstName.message}
-                />
-                <Input
-                  {...register('lastName')}
-                  type="text"
-                  placeholder={t('MODALS.AUTH.SIGN_UP_VIEW.LAST_NAME_INPUT')}
-                  containerStyles="h-[40px] xl:h-[48px]"
-                  error={errors.lastName && errors.lastName.message}
-                />
-              </div>
-              <Input
-                {...register('nickname')}
-                error={errors.nickname && errors.nickname.message}
-                type="text"
-                placeholder={t('MODALS.AUTH.SIGN_UP_VIEW.USERNAME_INPUT')}
-                containerStyles="h-[40px] xl:h-[48px] flex-[0_0_100%]"
-                autoComplete="username"
-              />
-            </>
-          ) : null}
-          <Input
-            {...register('email')}
-            error={errors.email && errors.email.message}
-            type="text"
-            placeholder={t('MODALS.AUTH.COMMON.EMAIL_INPUT')}
-            containerStyles="h-[40px] xl:h-[48px] flex-[0_0_100%]"
-            autoComplete="username"
-            icon={<Envelope />}
-          />
-          <Input
-            {...register('password')}
-            type="password"
-            placeholder={t('MODALS.AUTH.COMMON.PASSWORD_INPUT')}
-            autoComplete={isSignInForm ? 'current-password' : 'new-password'}
-            error={errors.password && errors.password.message}
-            containerStyles="h-[40px] xl:h-[48px] w-full"
-            icon={<Lock />}
-          />
-        </div>
-        {!isSignInForm ? (
-          <label
-            htmlFor="accept"
-            className="relative body-7 flex items-start gap-[7px] flex-row-reverse mb-[18px] xl:mb-8"
-          >
-            <Trans
-              i18nKey="MODALS.AUTH.SIGN_UP_VIEW.PRIVAT_POLICY_DESCRIPTION"
-              parent="p"
-            >
-              <a
-                href="/"
-                className="inline-block underline text-primary focus:outline-none"
-              >
-                Remove after adding a router
-              </a>
-              <a
-                href="/"
-                className="inline-block underline text-primary focus:outline-none"
-              >
-                Remove after adding a router
-              </a>
-              <a
-                href="/"
-                className="inline-block underline text-primary focus:outline-none"
-              >
-                Remove after adding a router
-              </a>
-            </Trans>
-            <div className="flex items-center justify-center flex-shrink-0 w-3 h-3 border xl:w-4 xl:h-4 border-tertiary-dark">
-              <input
-                {...register('policy')}
-                id="accept"
-                type="checkbox"
-                className="absolute opacity-0 peer"
-              />
-              <svg
-                className="hidden w-2 h-2 pointer-events-none fill-primary xl:w-3 xl:h-3 peer-checked:block"
-                viewBox="0 0 20 20"
-              >
-                <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
-              </svg>
-            </div>
-            {errors.policy && (
-              <p className="absolute error-input translate-y-[115%] text-primary text-center bottom-0 left-0 right-0">
-                {errors.policy.message}
-              </p>
-            )}
-          </label>
-        ) : (
-          <a
-            href="/"
-            className="block body-7 underline text-end mb-[18px] xl:mb-8 underline-offset-[3px]"
-          >
-            {t('MODALS.AUTH.SIGN_IN_VIEW.FORGOT_PASSWORD_LINK')}
-          </a>
-        )}
-        <Button
-          type="submit"
-          variant="primary"
-          containerStyle="h-[40px] xl:h-[48px] w-full"
-        >
-          {!isLoading ? t('MODALS.AUTH.COMMON.BUTTON') : <Loader size="2rem" />}
-        </Button>
-        <div className="body-7 mt-[8px] mb-[18px] xl:mb-[30px] flex">
-          <p className="block w-full">
-            {!isSignInForm
-              ? t(`MODALS.AUTH.SIGN_IN_VIEW.HAVE_ACCOUNT_DESCRIPTION`)
-              : t(`MODALS.AUTH.SIGN_UP_VIEW.DONT_HAVE_ACCOUNT_DESCRIPTION`)}
-          </p>
 
+        <div className="flex flex-wrap gap-[14px] xl:gap-[16px] mb-3.5 xl:mb-4">
+          {isSignInForm ? <Login /> : <Registration />}
           <Button
             type="button"
             className="flex justify-end w-full h-full border-0"
@@ -212,6 +63,6 @@ export const AuthForm = ({ type }: FormProps) => {
           </Button>
         </div>
       </div>
-    </form>
+    </div>
   );
 };
