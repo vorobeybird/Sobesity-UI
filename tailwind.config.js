@@ -59,13 +59,13 @@ module.exports = {
     extend: {
       keyframes: {
         'scroll-top': {
-          '0%': { top: '0%'},
-          '100%': { top: '-100%'},
+          '0%': { top: '0%' },
+          '100%': { top: '-100%' },
         },
         'scroll-bottom': {
-          '0%': { bottom: '0'},
-          '100%': { bottom: '-100%'},
-        }
+          '0%': { bottom: '0' },
+          '100%': { bottom: '-100%' },
+        },
       },
       animation: {
         'scroll-top': 'scroll-top 15s linear infinite',
@@ -256,8 +256,8 @@ module.exports = {
           '-ms-backface-visibility': 'hidden',
         },
         '.pause': {
-          'animation-play-state': 'paused'
-        }
+          'animation-play-state': 'paused',
+        },
       };
       addComponents(typography);
       addUtilities(utilities);

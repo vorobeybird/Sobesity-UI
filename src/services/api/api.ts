@@ -7,7 +7,9 @@ const baseQuery = fetchBaseQuery({
   baseUrl: API_URL,
   prepareHeaders: (headers, { getState }) => {
     // By default, if we have a token in the store, let's use that for authenticated requests
-    const { token } = (getState() as RootState).auth;
+    // const { token } = (getState() as RootState).auth;
+    const token =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImV4cCI6MTY4ODMwMTk3OCwiaWF0IjoxNjg1NzA5OTc4fQ.OkERmuGQXRYMImvve0hF355YLiBbMl9WVNpUg3AmvZs';
     if (token) {
       headers.set('authentication', `Bearer ${token}`);
     }

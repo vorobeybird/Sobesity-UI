@@ -1,3 +1,9 @@
+import User from './user-mock.svg';
+
 export const UserPage = () => {
-  return <div>Users</div>;
+  return (
+    <div>
+      <img src={User} alt="user" />
+    </div>
+  );
 };

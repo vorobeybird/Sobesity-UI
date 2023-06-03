@@ -8,7 +8,7 @@ export const Button: FC<ButtonProps> = ({
   loading = false,
   containerStyle = 'w-full h-full inline-block',
   disabled = false,
-  className = 'w-full h-full box-border inline-flex border-[1px] disabled:bg-secondary-dark disabled:border-secondary-dark disabled:text-tertiary-light focus:outline-none',
+  className = 'w-full h-full box-border border-[1px] disabled:bg-secondary-dark disabled:border-secondary-dark disabled:text-tertiary-light focus:outline-none',
   children,
   ...props
 }) => {

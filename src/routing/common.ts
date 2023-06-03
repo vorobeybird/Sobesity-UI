@@ -3,6 +3,7 @@ import { NotFoundPage } from '@/pages';
 import HomePage from '@/pages/home-page';
 import { SkillPage } from '@/pages/skill-page/skill-page';
 import { UserPage } from '@/pages/user-page/user-page';
+import { QuizPage } from '@/pages/quiz-page/quiz-page';
 
 type RouteType = {
   path: string;
@@ -29,7 +30,14 @@ const SKILL_PAGE: RouteType = {
   path: URLS.skill_route,
   id: 'skill',
   component: SkillPage,
-  isAuth: true,
+  isAuth: false,
+};
+
+const QUIZ_PAGE: RouteType = {
+  path: URLS.quiz_route,
+  id: 'quiz',
+  component: QuizPage,
+  isAuth: false,
 };
 
 const PAGE_NOT_FOUND: RouteType = {
@@ -39,4 +47,10 @@ const PAGE_NOT_FOUND: RouteType = {
   isAuth: false,
 };
 
-export const ROUTES = [HOME_PAGE, USER_PAGE, SKILL_PAGE, PAGE_NOT_FOUND];
+export const ROUTES = [
+  HOME_PAGE,
+  USER_PAGE,
+  SKILL_PAGE,
+  PAGE_NOT_FOUND,
+  QUIZ_PAGE,
+];
