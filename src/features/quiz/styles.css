@@ -4,6 +4,14 @@
   padding: 30px 60px;
   color: white;
 }
+.code {
+  white-space: pre-wrap;
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  color: #c0acac;
+}
 
 .quiz-container .active-question-no {
   font-size: 32px;

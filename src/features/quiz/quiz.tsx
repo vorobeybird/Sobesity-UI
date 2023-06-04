@@ -16,7 +16,8 @@ export const Quiz = ({ quest }: any) => {
     wrongAnswers: 0,
   });
 
-  const { question, answers } = quest[activeQuestion];
+  const { question, answers, code } = quest[activeQuestion];
+  console.log({ code });
   const onClickNext = () => {
     setSelectedAnswerIndex(null);
     setResult((prev) =>
@@ -55,6 +56,7 @@ export const Quiz = ({ quest }: any) => {
         {!showResult ? (
           <div>
             <h2 className="text-white">{question}</h2>
+            <div className="code">{code}</div>
             <ul>
               {answers.map((answer, index) => (
                 <li
