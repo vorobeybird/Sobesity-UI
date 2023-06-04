@@ -105,9 +105,7 @@ export const Quiz = ({ quest }: any) => {
             <p>
               Assigned level:
               <span>
-                {result.correctAnswers < quest.length / 2
-                  ? ' Junior'
-                  : ' Middle'}
+                {result.correctAnswers < quest.length / 2 ? ' Null' : ' Junior'}
               </span>
             </p>
             <NavLink to="/user">
