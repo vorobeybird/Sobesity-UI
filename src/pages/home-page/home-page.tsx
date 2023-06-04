@@ -19,6 +19,14 @@ import {
 } from '@/components/shared/icons/buttons';
 import FindInterviewer from '@/components/ui/info-components/find-interviewer';
 import { ImageTicker } from './image-ticker/image-ticker';
+import { store } from '@/store';
+import { selectIsAuthenticated } from '@/store/authSlice';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { AuthForm } from '@/components/auth-form';
+import { FormType } from '@/components/auth-form/auth-form.types';
+import Modal from '@/components/modal';
+import { useNavigate } from 'react-router-dom';
 
 export const HomePage = () => {
   const { t } = useTranslation();
@@ -32,6 +40,19 @@ export const HomePage = () => {
     <Python className="w-16 h-16 cursor-pointer" />,
     <Ruby className="w-16 h-16 cursor-pointer" />,
   ];
+
+  const [isOpen, setOpen] = useState(false);
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+
+  const navigation = useNavigate();
+
+  const onStart = () => {
+    if (!isAuthenticated) {
+      setOpen(true);
+    } else {
+      navigation('skill');
+    }
+  };
 
   return (
     <>
@@ -63,12 +84,16 @@ export const HomePage = () => {
 
           <div className="flex items-center justify-center w-full">
             <Button
+              onClick={() => onStart()}
               type="button"
               variant="primaryDark"
               containerStyle="h-9 w-[260px] lg:w-[300px] lg:h-12"
             >
-              {t('PAGES.HOME.MAIN_SECTION.BUTTON')}
+              Start Practicing
             </Button>
+            <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
+              <AuthForm type={FormType.SignIn} />
+            </Modal>
           </div>
 
           <div

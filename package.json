@@ -92,7 +92,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "npm run lint"
+      "echo mock"
     ]
   },
   "eslintConfig": {

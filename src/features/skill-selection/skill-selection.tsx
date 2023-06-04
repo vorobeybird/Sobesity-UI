@@ -5,7 +5,13 @@ import classNames from 'classnames';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import python from './python.png';
+import javascript from './javascript.svg';
+import java from './java.svg';
+import kotlin from './kotlin.svg';
+import ruby from './ruby.svg';
+import html from './html.svg';
 import Modal from '@/components/modal';
+import { Link, useNavigate } from 'react-router-dom';
 
 type User = {
   id: number;
@@ -22,13 +28,22 @@ const SkillSelection = () => {
     setInput(event.currentTarget.value);
   };
 
-  const blocks = [0, 1, 2, 3, 4, 5];
+  const navigate = useNavigate();
 
-  const applyGridSpan = (blocks: number[]): number[] => {
+  const blocks = [
+    { id: 0, name: 'Python', img: python },
+    { id: 1, name: 'Kotlin', img: kotlin },
+    { id: 2, name: 'JavaScript', img: javascript },
+    { id: 3, name: 'HTML', img: html },
+    { id: 4, name: 'Ruby', img: ruby },
+    { id: 5, name: 'Java', img: java },
+  ];
+
+  const applyGridSpan = (blocks: any): number[] => {
     const arr = [];
     for (let i = 0; i < blocks.length; i++) {
-      if (blocks[i + 1] % 3 === 0) {
-        arr.push(blocks[i], blocks[i + 1]);
+      if (blocks[i + 1].id % 3 === 0) {
+        arr.push(blocks[i].id, blocks[i + 1].id);
         i = (i + 1) * 2;
       }
     }
@@ -62,26 +77,26 @@ const SkillSelection = () => {
         {blocks.map((block, i) => (
           <div
             onClick={() =>
-              console.log(block === selectedSkill, block, selectedSkill)
+              console.log(block.id === selectedSkill, block, selectedSkill)
             }
             className={classNames('bg-black-light h-[150px]', {
-              'col-span-2': spanBlocks.includes(block),
+              'col-span-2': spanBlocks.includes(block.id),
             })}
           >
             <Button
               variant="primary"
-              onClick={() => onClickSkill(block)}
+              onClick={() => onClickSkill(block.id)}
               type="button"
               title="skill"
             >
               <div
-                className={`flex h-full items-end justify-left ${
-                  block == selectedSkill &&
+                className={`flex h-full p-5 items-end justify-left ${
+                  block.id == selectedSkill &&
                   'border-solid border-2 border-primary-light'
                 }`}
               >
-                <div className="p-4">Python </div>
-                <img src={python} alt="hei " className="w-10 h-10" />
+                <div className="p-4">{block.name}</div>
+                <img src={block.img} alt={block.name} className="w-10 h-10" />
               </div>
             </Button>
           </div>
@@ -99,13 +114,25 @@ const SkillSelection = () => {
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         <div className=" w-[500px] h-[350px] bg-black-light flex flex-col gap-4">
           <div className="p-10 h-full flex flex-col gap-4">
-            <Button variant="secondary" type="button">
-              Easy
+            <Button
+              variant="secondary"
+              type="button"
+              onClick={() => navigate(`/quiz/${'Python'}/junior`)}
+            >
+              Junior
             </Button>
-            <Button variant="secondary" type="button">
+            <Button
+              variant="secondary"
+              type="button"
+              onClick={() => navigate(`/quiz/${'Python'}/middle`)}
+            >
               Medium
             </Button>
-            <Button variant="secondary" type="button">
+            <Button
+              variant="secondary"
+              type="button"
+              onClick={() => navigate(`/quiz/${'Python'}/senior`)}
+            >
               Hard
             </Button>
           </div>

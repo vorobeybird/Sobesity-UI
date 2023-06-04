@@ -8,6 +8,7 @@ import { FormType } from '@/components/auth-form/auth-form.types';
 import BurgerMenu from '@/components/burger-menu';
 import ProfileButton from '@/components/profile-button';
 import { selectIsAuthenticated } from '@/store/authSlice';
+import { Link } from 'react-router-dom';
 
 export const Header: FC<any> = () => {
   const [isOpen, setOpen] = useState(false);
@@ -33,7 +34,14 @@ export const Header: FC<any> = () => {
             </Modal>
           </>
         )}
-        <BurgerMenu />
+        <Link to="/">
+          <div className="h3">Home</div>
+        </Link>
+        <Link to="/skill">
+          <div className="h3">Tests</div>
+        </Link>
+        <div className="h3">Online Interviev</div>
+        {/* <BurgerMenu /> */}
       </div>
     </div>
   );

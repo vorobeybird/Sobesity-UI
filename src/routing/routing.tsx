@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ROUTES } from './common';
+import { store } from '@/store';
 
 const Routing = () => {
-  const isAuth = false;
+  const state = store.getState();
+  const isAuth = state.auth.isAuthenticated;
   const allLegalRoutes = ROUTES.filter((element) => element.isAuth === isAuth);
 
   return (

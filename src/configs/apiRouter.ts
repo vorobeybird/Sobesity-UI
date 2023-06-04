@@ -2,7 +2,7 @@ export enum URLS {
   home_route = '',
   answer_route = '/answer',
   skill_route = '/skill',
-  quiz_route = '/quiz',
+  quiz_route = '/quiz/:theme/:level',
   user_route = '/user',
   login_route = '/user/login',
   question_route = '/question',
